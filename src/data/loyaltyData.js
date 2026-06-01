@@ -14,15 +14,11 @@ export const airlinesData = [
     milesPerPoint: 0.23,
     previousMilesPerPoint: 0.23,
     cpp: 1.8,
-    typicalRtCost: 30000,
-    explanation: "New distance-based chart for partners offers incredible value on Oneworld short-to-medium hauls. US to Central America for 30k RT.",
-    transferPartners: [
-      { partner: "Bilt", ratio: "1:1" },
-      { partner: "Marriott", ratio: "3:1" }
-    ],
-    redemptionExamples: [
-      { title: "LAX to San Jose, Costa Rica (SJO) (RT)", cost: "30,000 pts", link: "https://www.alaskaair.com" }
-    ]
+    primaryHub: "SEA",
+    primaryRegion: "NA",
+    bookingUrl: "https://www.alaskaair.com",
+    explanation: "Excellent distance-based partner award chart.",
+    transferPartners: [{ partner: "Bilt", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
   },
   {
     id: "iberia",
@@ -30,17 +26,11 @@ export const airlinesData = [
     milesPerPoint: 0.22,
     previousMilesPerPoint: 0.22,
     cpp: 1.6,
-    typicalRtCost: 34000,
-    explanation: "Outstanding off-peak pricing. 34,000 Avios can get you a round-trip from East Coast US to Madrid.",
-    transferPartners: [
-      { partner: "Chase", ratio: "1:1" },
-      { partner: "Amex", ratio: "1:1" },
-      { partner: "Bilt", ratio: "1:1" },
-      { partner: "Marriott", ratio: "3:1" }
-    ],
-    redemptionExamples: [
-      { title: "NY (JFK) to Madrid (MAD) Economy (RT)", cost: "34,000 pts", link: "https://www.iberia.com" }
-    ]
+    primaryHub: "MAD",
+    primaryRegion: "EU",
+    bookingUrl: "https://www.iberia.com",
+    explanation: "Outstanding off-peak pricing on Avios.",
+    transferPartners: [{ partner: "Chase", ratio: "1:1" }, { partner: "Amex", ratio: "1:1" }, { partner: "Bilt", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
   },
   {
     id: "flyingblue",
@@ -48,19 +38,11 @@ export const airlinesData = [
     milesPerPoint: 0.20,
     previousMilesPerPoint: 0.19,
     cpp: 1.5,
-    typicalRtCost: 30000,
-    explanation: "Promo Rewards frequently drop US-Europe round-trips to 30,000 points.",
-    transferPartners: [
-      { partner: "Chase", ratio: "1:1" },
-      { partner: "Amex", ratio: "1:1" },
-      { partner: "Citi", ratio: "1:1" },
-      { partner: "CapitalOne", ratio: "1:1" },
-      { partner: "Bilt", ratio: "1:1" },
-      { partner: "Marriott", ratio: "3:1" }
-    ],
-    redemptionExamples: [
-      { title: "Chicago (ORD) to Paris (CDG) Economy (RT)", cost: "30,000 pts", link: "https://www.flyingblue.us" }
-    ]
+    primaryHub: "CDG",
+    primaryRegion: "EU",
+    bookingUrl: "https://www.flyingblue.us",
+    explanation: "Promo Rewards offer consistent value.",
+    transferPartners: [{ partner: "Chase", ratio: "1:1" }, { partner: "Amex", ratio: "1:1" }, { partner: "Citi", ratio: "1:1" }, { partner: "CapitalOne", ratio: "1:1" }, { partner: "Bilt", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
   },
   {
     id: "turkish",
@@ -68,18 +50,11 @@ export const airlinesData = [
     milesPerPoint: 0.19,
     previousMilesPerPoint: 0.19,
     cpp: 1.8,
-    typicalRtCost: 20000,
-    explanation: "Incredible sweet spots for domestic US flights on United, like 20k RT coast-to-coast.",
-    transferPartners: [
-      { partner: "Citi", ratio: "1:1" },
-      { partner: "CapitalOne", ratio: "1:1" },
-      { partner: "Bilt", ratio: "1:1" },
-      { partner: "Marriott", ratio: "3:1" }
-    ],
-    redemptionExamples: [
-      { title: "NY (EWR) to Honolulu (HNL) Economy (RT)", cost: "30,000 pts", link: "https://www.turkishairlines.com" },
-      { title: "LAX to EWR Economy (RT)", cost: "20,000 pts", link: "https://www.turkishairlines.com" }
-    ]
+    primaryHub: "IST",
+    primaryRegion: "EU",
+    bookingUrl: "https://www.turkishairlines.com",
+    explanation: "Great Star Alliance partner sweet spots.",
+    transferPartners: [{ partner: "Citi", ratio: "1:1" }, { partner: "CapitalOne", ratio: "1:1" }, { partner: "Bilt", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
   },
   {
     id: "virgin",
@@ -87,19 +62,11 @@ export const airlinesData = [
     milesPerPoint: 0.18,
     previousMilesPerPoint: 0.17,
     cpp: 1.4,
-    typicalRtCost: 30000,
-    explanation: "Great for non-stop Delta flights like US to Europe for 30k RT.",
-    transferPartners: [
-      { partner: "Chase", ratio: "1:1" },
-      { partner: "Amex", ratio: "1:1" },
-      { partner: "Citi", ratio: "1:1" },
-      { partner: "CapitalOne", ratio: "1:1" },
-      { partner: "Bilt", ratio: "1:1" },
-      { partner: "Marriott", ratio: "3:1" }
-    ],
-    redemptionExamples: [
-      { title: "JFK to London (LHR) Economy (RT)", cost: "20,000 pts", link: "https://flywith.virginatlantic.com" }
-    ]
+    primaryHub: "LHR",
+    primaryRegion: "EU",
+    bookingUrl: "https://flywith.virginatlantic.com",
+    explanation: "Great for Delta non-stop flights.",
+    transferPartners: [{ partner: "Chase", ratio: "1:1" }, { partner: "Amex", ratio: "1:1" }, { partner: "Citi", ratio: "1:1" }, { partner: "CapitalOne", ratio: "1:1" }, { partner: "Bilt", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
   },
   {
     id: "avios-ba",
@@ -107,18 +74,11 @@ export const airlinesData = [
     milesPerPoint: 0.17,
     previousMilesPerPoint: 0.17,
     cpp: 1.3,
-    typicalRtCost: 26000,
-    explanation: "Distance-based chart is perfect for West Coast to Hawaii for 26k RT.",
-    transferPartners: [
-      { partner: "Chase", ratio: "1:1" },
-      { partner: "Amex", ratio: "1:1" },
-      { partner: "CapitalOne", ratio: "1:1" },
-      { partner: "Bilt", ratio: "1:1" },
-      { partner: "Marriott", ratio: "3:1" }
-    ],
-    redemptionExamples: [
-      { title: "LAX to Maui (OGG) Economy (RT)", cost: "26,000 pts", link: "https://www.britishairways.com" }
-    ]
+    primaryHub: "LHR",
+    primaryRegion: "EU",
+    bookingUrl: "https://www.britishairways.com",
+    explanation: "Distance-based chart is perfect for short-hauls.",
+    transferPartners: [{ partner: "Chase", ratio: "1:1" }, { partner: "Amex", ratio: "1:1" }, { partner: "CapitalOne", ratio: "1:1" }, { partner: "Bilt", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
   },
   {
     id: "ana",
@@ -126,15 +86,11 @@ export const airlinesData = [
     milesPerPoint: 0.16,
     previousMilesPerPoint: 0.16,
     cpp: 1.8,
-    typicalRtCost: 40000,
-    explanation: "Regular economy RT to Japan from the West Coast is exactly 40k in low season.",
-    transferPartners: [
-      { partner: "Amex", ratio: "1:1" },
-      { partner: "Marriott", ratio: "3:1" }
-    ],
-    redemptionExamples: [
-      { title: "Seattle (SEA) to Tokyo (HND) Economy (RT)", cost: "40,000 pts", link: "https://www.ana.co.jp" }
-    ]
+    primaryHub: "HND",
+    primaryRegion: "AS",
+    bookingUrl: "https://www.ana.co.jp",
+    explanation: "Amazing value but fuel surcharges apply.",
+    transferPartners: [{ partner: "Amex", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
   },
   {
     id: "aeroplan",
@@ -142,18 +98,11 @@ export const airlinesData = [
     milesPerPoint: 0.15,
     previousMilesPerPoint: 0.15,
     cpp: 1.7,
-    typicalRtCost: 25000,
-    explanation: "Short to medium haul flights within North America offer solid value without surcharges.",
-    transferPartners: [
-      { partner: "Chase", ratio: "1:1" },
-      { partner: "Amex", ratio: "1:1" },
-      { partner: "CapitalOne", ratio: "1:1" },
-      { partner: "Bilt", ratio: "1:1" },
-      { partner: "Marriott", ratio: "3:1" }
-    ],
-    redemptionExamples: [
-      { title: "Chicago (ORD) to Vancouver (YVR) Economy (RT)", cost: "25,000 pts", link: "https://www.aircanada.com" }
-    ]
+    primaryHub: "YYZ",
+    primaryRegion: "NA",
+    bookingUrl: "https://www.aircanada.com",
+    explanation: "No carrier surcharges on massive partner network.",
+    transferPartners: [{ partner: "Chase", ratio: "1:1" }, { partner: "Amex", ratio: "1:1" }, { partner: "CapitalOne", ratio: "1:1" }, { partner: "Bilt", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
   },
   {
     id: "lifemiles",
@@ -161,17 +110,11 @@ export const airlinesData = [
     milesPerPoint: 0.14,
     previousMilesPerPoint: 0.14,
     cpp: 1.6,
-    typicalRtCost: 27000,
-    explanation: "Coast to coast on United metal for 27k RT.",
-    transferPartners: [
-      { partner: "Amex", ratio: "1:1" },
-      { partner: "Citi", ratio: "1:1" },
-      { partner: "CapitalOne", ratio: "1:1" },
-      { partner: "Marriott", ratio: "3:1" }
-    ],
-    redemptionExamples: [
-      { title: "NY (EWR) to San Francisco (SFO) Economy (RT)", cost: "27,000 pts", link: "https://www.lifemiles.com" }
-    ]
+    primaryHub: "BOG",
+    primaryRegion: "SA",
+    bookingUrl: "https://www.lifemiles.com",
+    explanation: "Quirky routing rules but cheap Star Alliance awards.",
+    transferPartners: [{ partner: "Amex", ratio: "1:1" }, { partner: "Citi", ratio: "1:1" }, { partner: "CapitalOne", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
   },
   {
     id: "krisflyer",
@@ -179,18 +122,11 @@ export const airlinesData = [
     milesPerPoint: 0.13,
     previousMilesPerPoint: 0.13,
     cpp: 1.5,
-    typicalRtCost: 35000,
-    explanation: "Good for mainland US to Hawaii on United for 35k RT.",
-    transferPartners: [
-      { partner: "Chase", ratio: "1:1" },
-      { partner: "Amex", ratio: "1:1" },
-      { partner: "Citi", ratio: "1:1" },
-      { partner: "CapitalOne", ratio: "1:1" },
-      { partner: "Marriott", ratio: "3:1" }
-    ],
-    redemptionExamples: [
-      { title: "Houston (IAH) to Honolulu (HNL) Economy (RT)", cost: "35,000 pts", link: "https://www.singaporeair.com" }
-    ]
+    primaryHub: "SIN",
+    primaryRegion: "AS",
+    bookingUrl: "https://www.singaporeair.com",
+    explanation: "Great premium cabin access on SQ metal.",
+    transferPartners: [{ partner: "Chase", ratio: "1:1" }, { partner: "Amex", ratio: "1:1" }, { partner: "Citi", ratio: "1:1" }, { partner: "CapitalOne", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
   },
   {
     id: "qatar",
@@ -198,15 +134,11 @@ export const airlinesData = [
     milesPerPoint: 0.12,
     previousMilesPerPoint: 0.12,
     cpp: 1.4,
-    typicalRtCost: 35000,
-    explanation: "Shares Avios with BA, offering similar great value on Oneworld partners.",
-    transferPartners: [
-      { partner: "Citi", ratio: "1:1" },
-      { partner: "Marriott", ratio: "3:1" }
-    ],
-    redemptionExamples: [
-      { title: "Miami (MIA) to Lima (LIM) Economy (RT)", cost: "35,000 pts", link: "https://www.qatarairways.com" }
-    ]
+    primaryHub: "DOH",
+    primaryRegion: "ME",
+    bookingUrl: "https://www.qatarairways.com",
+    explanation: "Shares Avios with BA and Iberia.",
+    transferPartners: [{ partner: "Citi", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
   },
   {
     id: "cathay",
@@ -214,35 +146,23 @@ export const airlinesData = [
     milesPerPoint: 0.11,
     previousMilesPerPoint: 0.11,
     cpp: 1.3,
-    typicalRtCost: 40000,
-    explanation: "Distance based. NY to London on partner AA just hits the 40k mark.",
-    transferPartners: [
-      { partner: "Amex", ratio: "1:1" },
-      { partner: "Citi", ratio: "1:1" },
-      { partner: "CapitalOne", ratio: "1:1" },
-      { partner: "Bilt", ratio: "1:1" },
-      { partner: "Marriott", ratio: "3:1" }
-    ],
-    redemptionExamples: [
-      { title: "JFK to London (LHR) Economy (RT)", cost: "40,000 pts", link: "https://www.cathaypacific.com" }
-    ]
+    primaryHub: "HKG",
+    primaryRegion: "AS",
+    bookingUrl: "https://www.cathaypacific.com",
+    explanation: "Distance-based Oneworld chart.",
+    transferPartners: [{ partner: "Amex", ratio: "1:1" }, { partner: "Citi", ratio: "1:1" }, { partner: "CapitalOne", ratio: "1:1" }, { partner: "Bilt", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
   },
-  // --- TOO FREAKIN EXPENSIVE AIRLINES ---
   {
     id: "hawaiian",
     name: "HawaiianMiles",
     milesPerPoint: 0.08,
     previousMilesPerPoint: 0.08,
     cpp: 1.1,
-    typicalRtCost: 45000,
-    explanation: "While East Coast to Hawaii is far, it frequently costs 45k+ RT.",
-    transferPartners: [
-      { partner: "Amex", ratio: "1:1" },
-      { partner: "Marriott", ratio: "3:1" }
-    ],
-    redemptionExamples: [
-      { title: "Boston (BOS) to Honolulu (HNL) (RT)", cost: "50,000+ pts", link: "https://www.hawaiianairlines.com" }
-    ]
+    primaryHub: "HNL",
+    primaryRegion: "OC",
+    bookingUrl: "https://www.hawaiianairlines.com",
+    explanation: "Limited value outside of direct Hawaii routes.",
+    transferPartners: [{ partner: "Amex", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
   },
   {
     id: "aadvantage",
@@ -250,15 +170,11 @@ export const airlinesData = [
     milesPerPoint: 0.08,
     previousMilesPerPoint: 0.08,
     cpp: 1.5,
-    typicalRtCost: 45000,
-    explanation: "Most decent non-drivable long hauls easily top 40k RT due to web specials replacing saver awards.",
-    transferPartners: [
-      { partner: "Bilt", ratio: "1:1" },
-      { partner: "Marriott", ratio: "3:1" }
-    ],
-    redemptionExamples: [
-      { title: "US to Europe Economy (RT)", cost: "45,000+ pts", link: "https://www.aa.com" }
-    ]
+    primaryHub: "DFW",
+    primaryRegion: "NA",
+    bookingUrl: "https://www.aa.com",
+    explanation: "Web specials often devalue standard awards.",
+    transferPartners: [{ partner: "Bilt", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
   },
   {
     id: "jal",
@@ -266,14 +182,11 @@ export const airlinesData = [
     milesPerPoint: 0.07,
     previousMilesPerPoint: 0.07,
     cpp: 1.4,
-    typicalRtCost: 50000,
-    explanation: "Excellent program, but US to Japan minimums start at 50,000 points RT.",
-    transferPartners: [
-      { partner: "Marriott", ratio: "3:1" }
-    ],
-    redemptionExamples: [
-      { title: "US to Tokyo Economy (RT)", cost: "50,000+ pts", link: "https://www.jal.co.jp" }
-    ]
+    primaryHub: "NRT",
+    primaryRegion: "AS",
+    bookingUrl: "https://www.jal.co.jp",
+    explanation: "Strict award charts limit flexibility.",
+    transferPartners: [{ partner: "Marriott", ratio: "3:1" }]
   },
   {
     id: "mileageplus",
@@ -281,16 +194,11 @@ export const airlinesData = [
     milesPerPoint: 0.07,
     previousMilesPerPoint: 0.07,
     cpp: 1.2,
-    typicalRtCost: 55000,
-    explanation: "Dynamic pricing means almost all non-drivable long hauls are >40k.",
-    transferPartners: [
-      { partner: "Chase", ratio: "1:1" },
-      { partner: "Bilt", ratio: "1:1" },
-      { partner: "Marriott", ratio: "3:1.1" }
-    ],
-    redemptionExamples: [
-      { title: "Chicago (ORD) to Rome (FCO) Economy (RT)", cost: "60,000+ pts", link: "https://www.united.com" }
-    ]
+    primaryHub: "ORD",
+    primaryRegion: "NA",
+    bookingUrl: "https://www.united.com",
+    explanation: "Massive recent dynamic pricing devaluations.",
+    transferPartners: [{ partner: "Chase", ratio: "1:1" }, { partner: "Bilt", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1.1" }]
   },
   {
     id: "emirates",
@@ -298,19 +206,11 @@ export const airlinesData = [
     milesPerPoint: 0.06,
     previousMilesPerPoint: 0.06,
     cpp: 1.0,
-    typicalRtCost: 80000,
-    explanation: "Known for luxury, but their economy rates from the US to Dubai are astronomically expensive.",
-    transferPartners: [
-      { partner: "Chase", ratio: "1:1" },
-      { partner: "Amex", ratio: "1:1" },
-      { partner: "Citi", ratio: "1:1" },
-      { partner: "CapitalOne", ratio: "1:1" },
-      { partner: "Bilt", ratio: "1:1" },
-      { partner: "Marriott", ratio: "3:1" }
-    ],
-    redemptionExamples: [
-      { title: "NY (JFK) to Dubai (DXB) Economy (RT)", cost: "85,000+ pts", link: "https://www.emirates.com" }
-    ]
+    primaryHub: "DXB",
+    primaryRegion: "ME",
+    bookingUrl: "https://www.emirates.com",
+    explanation: "High point requirements and brutal surcharges.",
+    transferPartners: [{ partner: "Chase", ratio: "1:1" }, { partner: "Amex", ratio: "1:1" }, { partner: "Citi", ratio: "1:1" }, { partner: "CapitalOne", ratio: "1:1" }, { partner: "Bilt", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
   },
   {
     id: "etihad",
@@ -318,17 +218,11 @@ export const airlinesData = [
     milesPerPoint: 0.06,
     previousMilesPerPoint: 0.06,
     cpp: 1.1,
-    typicalRtCost: 75000,
-    explanation: "Recent devaluations effectively killed partner sweet spots. Long hauls are extremely expensive.",
-    transferPartners: [
-      { partner: "Amex", ratio: "1:1" },
-      { partner: "Citi", ratio: "1:1" },
-      { partner: "CapitalOne", ratio: "1:1" },
-      { partner: "Marriott", ratio: "3:1" }
-    ],
-    redemptionExamples: [
-      { title: "US to Abu Dhabi Economy (RT)", cost: "75,000+ pts", link: "https://www.etihad.com" }
-    ]
+    primaryHub: "AUH",
+    primaryRegion: "ME",
+    bookingUrl: "https://www.etihad.com",
+    explanation: "Recent devaluations effectively killed partner sweet spots.",
+    transferPartners: [{ partner: "Amex", ratio: "1:1" }, { partner: "Citi", ratio: "1:1" }, { partner: "CapitalOne", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
   },
   {
     id: "qantas",
@@ -336,17 +230,11 @@ export const airlinesData = [
     milesPerPoint: 0.05,
     previousMilesPerPoint: 0.05,
     cpp: 1.0,
-    typicalRtCost: 85000,
-    explanation: "Their distance-based chart heavily penalizes US travelers crossing the Pacific.",
-    transferPartners: [
-      { partner: "Amex", ratio: "1:1" },
-      { partner: "Citi", ratio: "1:1" },
-      { partner: "CapitalOne", ratio: "1:1" },
-      { partner: "Marriott", ratio: "3:1" }
-    ],
-    redemptionExamples: [
-      { title: "LAX to Sydney (SYD) Economy (RT)", cost: "85,000+ pts", link: "https://www.qantas.com" }
-    ]
+    primaryHub: "SYD",
+    primaryRegion: "OC",
+    bookingUrl: "https://www.qantas.com",
+    explanation: "Distance-based chart penalizes long routes.",
+    transferPartners: [{ partner: "Amex", ratio: "1:1" }, { partner: "Citi", ratio: "1:1" }, { partner: "CapitalOne", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
   },
   {
     id: "skymiles",
@@ -354,15 +242,11 @@ export const airlinesData = [
     milesPerPoint: 0.05,
     previousMilesPerPoint: 0.05,
     cpp: 1.1,
-    typicalRtCost: 70000,
-    explanation: "SkyMiles are heavily devalued. Any significant distance exceeds 40k easily.",
-    transferPartners: [
-      { partner: "Amex", ratio: "1:1" },
-      { partner: "Marriott", ratio: "3:1" }
-    ],
-    redemptionExamples: [
-      { title: "Atlanta (ATL) to Paris (CDG) Economy (RT)", cost: "70,000+ pts", link: "https://www.delta.com" }
-    ]
+    primaryHub: "ATL",
+    primaryRegion: "NA",
+    bookingUrl: "https://www.delta.com",
+    explanation: "SkyPesos. Highly dynamic and heavily devalued.",
+    transferPartners: [{ partner: "Amex", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
   },
   {
     id: "southwest",
@@ -370,15 +254,11 @@ export const airlinesData = [
     milesPerPoint: 0.04,
     previousMilesPerPoint: 0.04,
     cpp: 1.4,
-    typicalRtCost: 45000,
-    explanation: "Fixed value means any far, non-drivable destination requires a massive cache of points.",
-    transferPartners: [
-      { partner: "Chase", ratio: "1:1" },
-      { partner: "Marriott", ratio: "3:1" }
-    ],
-    redemptionExamples: [
-      { title: "Dallas (DAL) to Honolulu (HNL) (RT)", cost: "45,000+ pts", link: "https://www.southwest.com" }
-    ]
+    primaryHub: "DAL",
+    primaryRegion: "NA",
+    bookingUrl: "https://www.southwest.com",
+    explanation: "Fixed value means any far destination requires a massive cache of points.",
+    transferPartners: [{ partner: "Chase", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
   },
   {
     id: "jetblue",
@@ -386,16 +266,11 @@ export const airlinesData = [
     milesPerPoint: 0.04,
     previousMilesPerPoint: 0.04,
     cpp: 1.3,
-    typicalRtCost: 48000,
-    explanation: "Revenue-based model makes long-haul non-drivable flights consistently exceed 40k.",
-    transferPartners: [
-      { partner: "Chase", ratio: "1:1" },
-      { partner: "Amex", ratio: "1:1.25" },
-      { partner: "Citi", ratio: "1:1" }
-    ],
-    redemptionExamples: [
-      { title: "JFK to London (LHR) Core (RT)", cost: "50,000+ pts", link: "https://www.jetblue.com" }
-    ]
+    primaryHub: "JFK",
+    primaryRegion: "NA",
+    bookingUrl: "https://www.jetblue.com",
+    explanation: "Revenue-based model makes long-hauls extremely expensive.",
+    transferPartners: [{ partner: "Chase", ratio: "1:1" }, { partner: "Amex", ratio: "1:1.25" }, { partner: "Citi", ratio: "1:1" }]
   }
 ];
 

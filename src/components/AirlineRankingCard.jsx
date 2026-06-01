@@ -38,7 +38,9 @@ export default function AirlineRankingCard({ data, rank }) {
           {milesPerPoint.toFixed(2)}
         </div>
         <div className="metric-label">Miles Per Point</div>
-        <div className="cpp-val">Typical RT Cost: {typicalRtCost.toLocaleString()} pts</div>
+        <div className="cpp-val">
+          Typical RT Cost: {typicalRtCost >= 999999 ? 'N/A (Drivable)' : `${typicalRtCost.toLocaleString()} pts`}
+        </div>
       </div>
 
       <div className={`explanation ${isTooExpensive ? 'danger' : ''}`}>

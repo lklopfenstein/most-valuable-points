@@ -1,78 +1,17 @@
 import React, { useState, useMemo } from 'react';
 import { airlinesData, hotelsData } from './data/loyaltyData';
+import { generateDynamicAirlines } from './utils/redemptionEngine';
 import AirlineRankingCard from './components/AirlineRankingCard';
 import HotelRankingCard from './components/HotelRankingCard';
 import AirportSearch from './components/AirportSearch';
 import { Plane, Building, MapPin } from 'lucide-react';
-
-function calculateDynamicAirlines(baseData, origin) {
-  if (!origin) return baseData;
-  
-  return baseData.map(airline => {
-    let multiplier = 1.0;
-    let costMultiplier = 1.0;
-    let newExplanation = airline.explanation;
-
-    // Delta Hubs
-    const deltaHubs = ['ATL', 'DTW', 'SLC', 'MSP', 'JFK', 'LGA', 'SEA'];
-    if (airline.id === 'skymiles' && deltaHubs.includes(origin.iata)) {
-      multiplier = 1.6; 
-      costMultiplier = 0.5; 
-      newExplanation = `Origin ${origin.iata} is a massive Delta hub! Flash sales drop typical RT costs drastically.`;
-    }
-
-    // US Origins vs European Programs
-    if (origin.country === 'US' && ['avios-ba', 'flyingblue'].includes(airline.id)) {
-      if (origin.iata === 'JFK' || origin.iata === 'EWR' || origin.iata === 'BOS') {
-        multiplier = 1.5; 
-        costMultiplier = 0.7; 
-        newExplanation = `East Coast origin (${origin.iata}) unlocks insane sweet spots to Europe on this program.`;
-      }
-    }
-
-    // European Origins
-    const euCountries = ['GB', 'FR', 'DE', 'ES', 'IT', 'NL'];
-    if (euCountries.includes(origin.country)) {
-      if (['avios-ba', 'flyingblue', 'iberia'].includes(airline.id)) {
-        multiplier = 1.5;
-        costMultiplier = 0.6;
-        newExplanation = `Originating in Europe supercharges ${airline.name} value.`;
-      } else if (['skymiles', 'mileageplus', 'aadvantage', 'southwest', 'jetblue', 'alaska'].includes(airline.id)) {
-        multiplier = 0.5; 
-        costMultiplier = 1.5; 
-        newExplanation = `Originating in Europe crushes the value of US programs due to massive surcharges or lack of routes.`;
-      }
-    }
-
-    // Asian Origins
-    const asiaCountries = ['JP', 'KR', 'CN', 'SG', 'HK'];
-    if (asiaCountries.includes(origin.country)) {
-      if (['ana', 'jal', 'cathay', 'krisflyer'].includes(airline.id)) {
-        multiplier = 1.6;
-        costMultiplier = 0.6;
-        newExplanation = `Asian origin gives home-field advantage.`;
-      } else if (['southwest', 'jetblue'].includes(airline.id)) {
-        multiplier = 0.1;
-        costMultiplier = 3.0;
-        newExplanation = `Essentially useless for this origin.`;
-      }
-    }
-
-    return {
-      ...airline,
-      milesPerPoint: airline.milesPerPoint * multiplier,
-      typicalRtCost: airline.typicalRtCost * costMultiplier,
-      explanation: multiplier !== 1.0 ? newExplanation : airline.explanation
-    };
-  });
-}
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('airlines');
   const [origin, setOrigin] = useState(null);
 
   const dynamicAirlines = useMemo(() => {
-    return calculateDynamicAirlines(airlinesData, origin);
+    return generateDynamicAirlines(airlinesData, origin);
   }, [origin]);
 
   const airlineTiers = useMemo(() => {
