@@ -9,6 +9,22 @@ export const transferPartnersMeta = {
 
 export const airlinesData = [
   {
+    id: "alaska",
+    name: "Alaska Airlines Mileage Plan",
+    milesPerPoint: 0.23,
+    previousMilesPerPoint: 0.23,
+    cpp: 1.8,
+    typicalRtCost: 30000,
+    explanation: "New distance-based chart for partners offers incredible value on Oneworld short-to-medium hauls. US to Central America for 30k RT.",
+    transferPartners: [
+      { partner: "Bilt", ratio: "1:1" },
+      { partner: "Marriott", ratio: "3:1" }
+    ],
+    redemptionExamples: [
+      { title: "LAX to San Jose, Costa Rica (SJO) (RT)", cost: "30,000 pts", link: "https://www.alaskaair.com" }
+    ]
+  },
+  {
     id: "iberia",
     name: "Iberia Plus",
     milesPerPoint: 0.22,
@@ -213,6 +229,22 @@ export const airlinesData = [
   },
   // --- TOO FREAKIN EXPENSIVE AIRLINES ---
   {
+    id: "hawaiian",
+    name: "HawaiianMiles",
+    milesPerPoint: 0.08,
+    previousMilesPerPoint: 0.08,
+    cpp: 1.1,
+    typicalRtCost: 45000,
+    explanation: "While East Coast to Hawaii is far, it frequently costs 45k+ RT.",
+    transferPartners: [
+      { partner: "Amex", ratio: "1:1" },
+      { partner: "Marriott", ratio: "3:1" }
+    ],
+    redemptionExamples: [
+      { title: "Boston (BOS) to Honolulu (HNL) (RT)", cost: "50,000+ pts", link: "https://www.hawaiianairlines.com" }
+    ]
+  },
+  {
     id: "aadvantage",
     name: "American Airlines AAdvantage",
     milesPerPoint: 0.08,
@@ -226,6 +258,21 @@ export const airlinesData = [
     ],
     redemptionExamples: [
       { title: "US to Europe Economy (RT)", cost: "45,000+ pts", link: "https://www.aa.com" }
+    ]
+  },
+  {
+    id: "jal",
+    name: "Japan Airlines Mileage Bank",
+    milesPerPoint: 0.07,
+    previousMilesPerPoint: 0.07,
+    cpp: 1.4,
+    typicalRtCost: 50000,
+    explanation: "Excellent program, but US to Japan minimums start at 50,000 points RT.",
+    transferPartners: [
+      { partner: "Marriott", ratio: "3:1" }
+    ],
+    redemptionExamples: [
+      { title: "US to Tokyo Economy (RT)", cost: "50,000+ pts", link: "https://www.jal.co.jp" }
     ]
   },
   {
@@ -243,6 +290,62 @@ export const airlinesData = [
     ],
     redemptionExamples: [
       { title: "Chicago (ORD) to Rome (FCO) Economy (RT)", cost: "60,000+ pts", link: "https://www.united.com" }
+    ]
+  },
+  {
+    id: "emirates",
+    name: "Emirates Skywards",
+    milesPerPoint: 0.06,
+    previousMilesPerPoint: 0.06,
+    cpp: 1.0,
+    typicalRtCost: 80000,
+    explanation: "Known for luxury, but their economy rates from the US to Dubai are astronomically expensive.",
+    transferPartners: [
+      { partner: "Chase", ratio: "1:1" },
+      { partner: "Amex", ratio: "1:1" },
+      { partner: "Citi", ratio: "1:1" },
+      { partner: "CapitalOne", ratio: "1:1" },
+      { partner: "Bilt", ratio: "1:1" },
+      { partner: "Marriott", ratio: "3:1" }
+    ],
+    redemptionExamples: [
+      { title: "NY (JFK) to Dubai (DXB) Economy (RT)", cost: "85,000+ pts", link: "https://www.emirates.com" }
+    ]
+  },
+  {
+    id: "etihad",
+    name: "Etihad Guest",
+    milesPerPoint: 0.06,
+    previousMilesPerPoint: 0.06,
+    cpp: 1.1,
+    typicalRtCost: 75000,
+    explanation: "Recent devaluations effectively killed partner sweet spots. Long hauls are extremely expensive.",
+    transferPartners: [
+      { partner: "Amex", ratio: "1:1" },
+      { partner: "Citi", ratio: "1:1" },
+      { partner: "CapitalOne", ratio: "1:1" },
+      { partner: "Marriott", ratio: "3:1" }
+    ],
+    redemptionExamples: [
+      { title: "US to Abu Dhabi Economy (RT)", cost: "75,000+ pts", link: "https://www.etihad.com" }
+    ]
+  },
+  {
+    id: "qantas",
+    name: "Qantas Frequent Flyer",
+    milesPerPoint: 0.05,
+    previousMilesPerPoint: 0.05,
+    cpp: 1.0,
+    typicalRtCost: 85000,
+    explanation: "Their distance-based chart heavily penalizes US travelers crossing the Pacific.",
+    transferPartners: [
+      { partner: "Amex", ratio: "1:1" },
+      { partner: "Citi", ratio: "1:1" },
+      { partner: "CapitalOne", ratio: "1:1" },
+      { partner: "Marriott", ratio: "3:1" }
+    ],
+    redemptionExamples: [
+      { title: "LAX to Sydney (SYD) Economy (RT)", cost: "85,000+ pts", link: "https://www.qantas.com" }
     ]
   },
   {
@@ -297,6 +400,34 @@ export const airlinesData = [
 ];
 
 export const hotelsData = [
+  {
+    id: "accor",
+    name: "Accor Live Limitless (ALL)",
+    averagePoints: 6000,
+    previousAveragePoints: 6000,
+    cpp: 2.2,
+    explanation: "Fixed value (2000 pts = €40). A standard €120 3-star room is only 6,000 points. Massive value here.",
+    transferPartners: [
+      { partner: "CapitalOne", ratio: "2:1" }
+    ],
+    redemptionExamples: [
+      { title: "Mercure Paris Centre Tour Eiffel", cost: "8,000 pts", link: "https://all.accor.com" }
+    ]
+  },
+  {
+    id: "lhw",
+    name: "Leading Hotels of the World",
+    averagePoints: 10000,
+    previousAveragePoints: 10000,
+    cpp: 3.5,
+    explanation: "Points are hard to earn, but redemptions start as low as 4,000 pts for incredibly luxurious 5-star properties.",
+    transferPartners: [
+      { partner: "Citi", ratio: "1000:200" } 
+    ],
+    redemptionExamples: [
+      { title: "The Ritz London", cost: "14,000 pts", link: "https://www.lhw.com" }
+    ]
+  },
   {
     id: "hyatt",
     name: "World of Hyatt",
@@ -357,6 +488,18 @@ export const hotelsData = [
     ]
   },
   // --- TOO FREAKIN EXPENSIVE HOTELS ---
+  {
+    id: "sonesta",
+    name: "Sonesta Travel Pass",
+    averagePoints: 22000,
+    previousAveragePoints: 22000,
+    cpp: 0.7,
+    explanation: "Most 3+ star properties sit firmly in the 20,000 - 30,000 point tier.",
+    transferPartners: [],
+    redemptionExamples: [
+      { title: "The Royal Sonesta New Orleans", cost: "25,000 pts", link: "https://www.sonesta.com" }
+    ]
+  },
   {
     id: "ihg",
     name: "IHG One Rewards",
