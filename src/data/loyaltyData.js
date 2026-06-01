@@ -18,37 +18,10 @@ export const airlinesData = [
     transferPartners: [
       { partner: "Amex", ratio: "1:1" },
       { partner: "Marriott", ratio: "3:1" }
-    ]
-  },
-  {
-    id: "flyingblue",
-    name: "Air France/KLM Flying Blue",
-    milesPerPoint: 0.15,
-    previousMilesPerPoint: 0.14,
-    cpp: 1.5,
-    explanation: "Value increased slightly due to recent promo awards allowing 25% off long-haul routes.",
-    transferPartners: [
-      { partner: "Chase", ratio: "1:1" },
-      { partner: "Amex", ratio: "1:1" },
-      { partner: "Citi", ratio: "1:1" },
-      { partner: "CapitalOne", ratio: "1:1" },
-      { partner: "Bilt", ratio: "1:1" },
-      { partner: "Marriott", ratio: "3:1" }
-    ]
-  },
-  {
-    id: "aeroplan",
-    name: "Air Canada Aeroplan",
-    milesPerPoint: 0.14,
-    previousMilesPerPoint: 0.14,
-    cpp: 1.7,
-    explanation: "Steady value, excellent partner network without fuel surcharges for long distances.",
-    transferPartners: [
-      { partner: "Chase", ratio: "1:1" },
-      { partner: "Amex", ratio: "1:1" },
-      { partner: "CapitalOne", ratio: "1:1" },
-      { partner: "Bilt", ratio: "1:1" },
-      { partner: "Marriott", ratio: "3:1" }
+    ],
+    redemptionExamples: [
+      { title: "Tokyo (HND) to NY (JFK) First Class (RT)", cost: "110,000 pts", link: "https://www.ana.co.jp/en/us/amc/reference/tux/award/" },
+      { title: "US to Europe Business Class (RT)", cost: "88,000 pts", link: "https://www.ana.co.jp/en/us/amc/reference/tux/award/" }
     ]
   },
   {
@@ -65,21 +38,28 @@ export const airlinesData = [
       { partner: "CapitalOne", ratio: "1:1" },
       { partner: "Bilt", ratio: "1:1" },
       { partner: "Marriott", ratio: "3:1" }
+    ],
+    redemptionExamples: [
+      { title: "US to Japan via ANA First Class", cost: "85,000 pts", link: "https://flywith.virginatlantic.com/us/en/flying-club/airline-partners/all-nippon-airways.html" }
     ]
   },
   {
-    id: "avios-ba",
-    name: "British Airways Executive Club",
-    milesPerPoint: 0.08,
-    previousMilesPerPoint: 0.08,
-    cpp: 1.3,
-    explanation: "Poor for extreme distance due to distance-based award chart, but decent for short hauls.",
+    id: "flyingblue",
+    name: "Air France/KLM Flying Blue",
+    milesPerPoint: 0.15,
+    previousMilesPerPoint: 0.14,
+    cpp: 1.5,
+    explanation: "Value increased slightly due to recent promo awards allowing 25% off long-haul routes.",
     transferPartners: [
       { partner: "Chase", ratio: "1:1" },
       { partner: "Amex", ratio: "1:1" },
+      { partner: "Citi", ratio: "1:1" },
       { partner: "CapitalOne", ratio: "1:1" },
       { partner: "Bilt", ratio: "1:1" },
       { partner: "Marriott", ratio: "3:1" }
+    ],
+    redemptionExamples: [
+      { title: "NYC to Paris Economy (Promo Rewards)", cost: "11,250 pts", link: "https://www.flyingblue.us/en/spend/flights/promo-rewards" }
     ]
   },
   {
@@ -94,6 +74,27 @@ export const airlinesData = [
       { partner: "Citi", ratio: "1:1" },
       { partner: "CapitalOne", ratio: "1:1" },
       { partner: "Marriott", ratio: "3:1" }
+    ],
+    redemptionExamples: [
+      { title: "US to Europe Business Class (Star Alliance)", cost: "63,000 pts", link: "https://www.lifemiles.com/" }
+    ]
+  },
+  {
+    id: "aeroplan",
+    name: "Air Canada Aeroplan",
+    milesPerPoint: 0.14,
+    previousMilesPerPoint: 0.14,
+    cpp: 1.7,
+    explanation: "Steady value, excellent partner network without fuel surcharges for long distances.",
+    transferPartners: [
+      { partner: "Chase", ratio: "1:1" },
+      { partner: "Amex", ratio: "1:1" },
+      { partner: "CapitalOne", ratio: "1:1" },
+      { partner: "Bilt", ratio: "1:1" },
+      { partner: "Marriott", ratio: "3:1" }
+    ],
+    redemptionExamples: [
+      { title: "US West Coast to Tokyo Business Class", cost: "55,000 pts", link: "https://www.aircanada.com/us/en/aco/home/aeroplan/redeem/flights.html" }
     ]
   },
   {
@@ -109,18 +110,24 @@ export const airlinesData = [
       { partner: "Citi", ratio: "1:1" },
       { partner: "CapitalOne", ratio: "1:1" },
       { partner: "Marriott", ratio: "3:1" }
+    ],
+    redemptionExamples: [
+      { title: "JFK to Frankfurt Suites Class", cost: "97,000 pts", link: "https://www.singaporeair.com/en_UK/us/ppsclub-krisflyer/use-miles/redeem-miles/" }
     ]
   },
   {
-    id: "skymiles",
-    name: "Delta SkyMiles",
-    milesPerPoint: 0.06,
-    previousMilesPerPoint: 0.06,
-    cpp: 1.2,
-    explanation: "Dynamic pricing severely limits extreme distance value on long-haul flights.",
+    id: "aadvantage",
+    name: "American Airlines AAdvantage",
+    milesPerPoint: 0.11,
+    previousMilesPerPoint: 0.11,
+    cpp: 1.5,
+    explanation: "Fixed partner charts still offer good distance-based value, though harder to earn.",
     transferPartners: [
-      { partner: "Amex", ratio: "1:1" },
+      { partner: "Bilt", ratio: "1:1" },
       { partner: "Marriott", ratio: "3:1" }
+    ],
+    redemptionExamples: [
+      { title: "US to Maldives via Qatar QSuites", cost: "70,000 pts", link: "https://www.aa.com/i18n/aadvantage-program/miles/redeem/award-travel/flight-award-chart.jsp" }
     ]
   },
   {
@@ -134,18 +141,42 @@ export const airlinesData = [
       { partner: "Chase", ratio: "1:1" },
       { partner: "Bilt", ratio: "1:1" },
       { partner: "Marriott", ratio: "3:1.1" }
+    ],
+    redemptionExamples: [
+      { title: "Newark (EWR) to London (LHR) Polaris", cost: "80,000 pts", link: "https://www.united.com/en/us/fly/mileageplus/awards/travel.html" }
     ]
   },
   {
-    id: "aadvantage",
-    name: "American Airlines AAdvantage",
-    milesPerPoint: 0.11,
-    previousMilesPerPoint: 0.11,
-    cpp: 1.5,
-    explanation: "Fixed partner charts still offer good distance-based value, though harder to earn.",
+    id: "avios-ba",
+    name: "British Airways Executive Club",
+    milesPerPoint: 0.08,
+    previousMilesPerPoint: 0.08,
+    cpp: 1.3,
+    explanation: "Poor for extreme distance due to distance-based award chart, but decent for short hauls.",
     transferPartners: [
+      { partner: "Chase", ratio: "1:1" },
+      { partner: "Amex", ratio: "1:1" },
+      { partner: "CapitalOne", ratio: "1:1" },
       { partner: "Bilt", ratio: "1:1" },
       { partner: "Marriott", ratio: "3:1" }
+    ],
+    redemptionExamples: [
+      { title: "US West Coast to Hawaii Economy", cost: "13,000 pts", link: "https://www.britishairways.com/en-us/executive-club/spending-avios/reward-flights" }
+    ]
+  },
+  {
+    id: "skymiles",
+    name: "Delta SkyMiles",
+    milesPerPoint: 0.06,
+    previousMilesPerPoint: 0.06,
+    cpp: 1.2,
+    explanation: "Dynamic pricing severely limits extreme distance value on long-haul flights.",
+    transferPartners: [
+      { partner: "Amex", ratio: "1:1" },
+      { partner: "Marriott", ratio: "3:1" }
+    ],
+    redemptionExamples: [
+      { title: "Domestic Main Cabin Cross-Country", cost: "35,000 pts", link: "https://www.delta.com/us/en/skymiles/how-to-use-miles/travel-with-miles" }
     ]
   },
   {
@@ -158,6 +189,9 @@ export const airlinesData = [
     transferPartners: [
       { partner: "Chase", ratio: "1:1" },
       { partner: "Marriott", ratio: "3:1" }
+    ],
+    redemptionExamples: [
+      { title: "Chicago to Denver (Wanna Get Away)", cost: "9,500 pts", link: "https://www.southwest.com/loyalty/redeem/" }
     ]
   }
 ];
@@ -173,6 +207,25 @@ export const hotelsData = [
     transferPartners: [
       { partner: "Chase", ratio: "1:1" },
       { partner: "Bilt", ratio: "1:1" }
+    ],
+    redemptionExamples: [
+      { title: "Hyatt Regency Kyoto (Category 6)", cost: "25,000 pts", link: "https://www.hyatt.com/explore-hotels" },
+      { title: "Hyatt Place Tokyo Bay (Category 4)", cost: "15,000 pts", link: "https://www.hyatt.com/explore-hotels" }
+    ]
+  },
+  {
+    id: "wyndham",
+    name: "Wyndham Rewards",
+    averagePoints: 15000,
+    previousAveragePoints: 15000,
+    cpp: 1.1,
+    explanation: "Tiered chart at 7.5k, 15k, and 30k. Most decent properties fall into the 15k tier.",
+    transferPartners: [
+      { partner: "Citi", ratio: "1:1" },
+      { partner: "CapitalOne", ratio: "1:1" }
+    ],
+    redemptionExamples: [
+      { title: "Wyndham Grand Clearwater Beach", cost: "30,000 pts", link: "https://www.wyndhamhotels.com/wyndham-rewards/redeem" }
     ]
   },
   {
@@ -186,18 +239,24 @@ export const hotelsData = [
       { partner: "Citi", ratio: "1:2" },
       { partner: "CapitalOne", ratio: "1:1" },
       { partner: "Amex", ratio: "1:1" }
+    ],
+    redemptionExamples: [
+      { title: "Cambria Hotel New York - Chelsea", cost: "20,000 pts", link: "https://www.choicehotels.com/choice-privileges/redeem-points" }
     ]
   },
   {
-    id: "wyndham",
-    name: "Wyndham Rewards",
-    averagePoints: 15000,
-    previousAveragePoints: 15000,
-    cpp: 1.1,
-    explanation: "Tiered chart at 7.5k, 15k, and 30k. Most decent properties fall into the 15k tier.",
+    id: "ihg",
+    name: "IHG One Rewards",
+    averagePoints: 28000,
+    previousAveragePoints: 27000,
+    cpp: 0.6,
+    explanation: "Holiday Inn Express and higher properties usually start well above 20k per night.",
     transferPartners: [
-      { partner: "Citi", ratio: "1:1" },
-      { partner: "CapitalOne", ratio: "1:1" }
+      { partner: "Chase", ratio: "1:1" },
+      { partner: "Bilt", ratio: "1:1" }
+    ],
+    redemptionExamples: [
+      { title: "InterContinental Paris Le Grand", cost: "85,000 pts", link: "https://www.ihg.com/rewardsclub/content/us/en/reward-nights" }
     ]
   },
   {
@@ -211,6 +270,9 @@ export const hotelsData = [
       { partner: "Chase", ratio: "1:1" },
       { partner: "Amex", ratio: "1:1" },
       { partner: "Bilt", ratio: "1:1" }
+    ],
+    redemptionExamples: [
+      { title: "The Ritz-Carlton, Maui", cost: "100,000 pts", link: "https://www.marriott.com/loyalty/redeem/hotels/free-nights.mi" }
     ]
   },
   {
@@ -222,18 +284,9 @@ export const hotelsData = [
     explanation: "Hyper-inflated point currency means 18k points gets you almost nothing.",
     transferPartners: [
       { partner: "Amex", ratio: "1:2" }
-    ]
-  },
-  {
-    id: "ihg",
-    name: "IHG One Rewards",
-    averagePoints: 28000,
-    previousAveragePoints: 27000,
-    cpp: 0.6,
-    explanation: "Holiday Inn Express and higher properties usually start well above 20k per night.",
-    transferPartners: [
-      { partner: "Chase", ratio: "1:1" },
-      { partner: "Bilt", ratio: "1:1" }
+    ],
+    redemptionExamples: [
+      { title: "Conrad Bora Bora Nui", cost: "120,000 pts", link: "https://www.hilton.com/en/hilton-honors/points/redeem/" }
     ]
   }
 ];

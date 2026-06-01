@@ -57,6 +57,22 @@ export default function HotelRankingCard({ data, rank }) {
           );
         })}
       </div>
+
+      {data.redemptionExamples && data.redemptionExamples.length > 0 && (
+        <div style={{ marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid var(--glass-border)' }}>
+          <h4 style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Example Redemptions</h4>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '0.875rem' }}>
+            {data.redemptionExamples.map((ex, i) => (
+              <li key={i} style={{ marginBottom: '0.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1rem' }}>
+                <a href={ex.link} target="_blank" rel="noopener noreferrer" style={{ color: isTooExpensive ? 'var(--danger)' : 'var(--accent-primary)', textDecoration: 'none' }}>
+                  {ex.title}
+                </a>
+                <span style={{ fontWeight: 600, whiteSpace: 'nowrap', color: isTooExpensive ? 'var(--danger)' : 'inherit' }}>{ex.cost}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
