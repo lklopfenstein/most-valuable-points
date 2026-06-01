@@ -36,14 +36,14 @@ export default function HotelRankingCard({ data, rank }) {
       
       <div style={{ marginTop: isTooExpensive ? '1rem' : '1.5rem', display: 'flex', gap: '2rem' }}>
         <div>
-          <div className="metric-highlight" style={{ color: isTooExpensive ? 'var(--danger)' : 'inherit', background: isTooExpensive ? 'none' : '' }}>
+          <div className="metric-highlight" style={{ background: isTooExpensive ? 'var(--danger)' : '' }}>
             {averagePoints.toLocaleString()}
           </div>
           <div className="metric-label">Avg. Pts / Night (3+ Stars)</div>
         </div>
 
         <div>
-          <div className="metric-highlight" style={{ color: 'var(--success, #10b981)', background: isTooExpensive ? 'none' : 'rgba(16, 185, 129, 0.1)' }}>
+          <div className="metric-highlight" style={{ background: isTooExpensive ? 'var(--danger)' : 'var(--success, #10b981)' }}>
             {cpp ? `${cpp.toFixed(1)}¢` : 'N/A'}
           </div>
           <div className="metric-label">Dollar Value (CPP)</div>
