@@ -271,6 +271,66 @@ export const airlinesData = [
     bookingUrl: "https://www.jetblue.com",
     explanation: "Revenue-based model makes long-hauls extremely expensive.",
     transferPartners: [{ partner: "Chase", ratio: "1:1" }, { partner: "Amex", ratio: "1:1.25" }, { partner: "Citi", ratio: "1:1" }]
+  },
+  {
+    id: "spirit",
+    name: "Free Spirit",
+    milesPerPoint: 0.03,
+    previousMilesPerPoint: 0.03,
+    cpp: 1.0,
+    primaryHub: "FLL",
+    primaryRegion: "NA",
+    bookingUrl: "https://www.spirit.com",
+    explanation: "Revenue-based. Low cash cost means you fly zero distance per point.",
+    transferPartners: []
+  },
+  {
+    id: "frontier",
+    name: "Frontier Miles",
+    milesPerPoint: 0.03,
+    previousMilesPerPoint: 0.03,
+    cpp: 0.9,
+    primaryHub: "DEN",
+    primaryRegion: "NA",
+    bookingUrl: "https://www.flyfrontier.com",
+    explanation: "Revenue-based budget carrier. Abysmal distance per point.",
+    transferPartners: [{ partner: "Marriott", ratio: "3:1" }]
+  },
+  {
+    id: "allegiant",
+    name: "Allegiant Allways Rewards",
+    milesPerPoint: 0.02,
+    previousMilesPerPoint: 0.02,
+    cpp: 1.0,
+    primaryHub: "LAS",
+    primaryRegion: "NA",
+    bookingUrl: "https://www.allegiantair.com",
+    explanation: "Points are fixed cash equivalents. You get nowhere fast.",
+    transferPartners: []
+  },
+  {
+    id: "airasia",
+    name: "AirAsia BIG Rewards",
+    milesPerPoint: 0.02,
+    previousMilesPerPoint: 0.02,
+    cpp: 0.5,
+    primaryHub: "KUL",
+    primaryRegion: "AS",
+    bookingUrl: "https://www.airasia.com",
+    explanation: "Extreme budget carrier in Asia. Points are largely worthless.",
+    transferPartners: []
+  },
+  {
+    id: "pegasus",
+    name: "Pegasus BolBol",
+    milesPerPoint: 0.02,
+    previousMilesPerPoint: 0.02,
+    cpp: 0.6,
+    primaryHub: "SAW",
+    primaryRegion: "EU",
+    bookingUrl: "https://www.flypgs.com",
+    explanation: "Budget airline covering EU/ME. Revenue-based system.",
+    transferPartners: []
   }
 ];
 
@@ -348,6 +408,30 @@ export const hotelsData = [
     ],
     redemptionExamples: [
       { title: "Cambria Hotel New York - Chelsea", cost: "16,000 pts", link: "https://www.choicehotels.com" }
+    ]
+  },
+  {
+    id: "redroof",
+    name: "RediRewards",
+    averagePoints: 14000,
+    previousAveragePoints: 14000,
+    cpp: 0.5,
+    explanation: "Red Roof Inns are cheap, but strictly budget (1-2 star). Points stretch far if you don't mind the quality.",
+    transferPartners: [],
+    redemptionExamples: [
+      { title: "Red Roof PLUS+ Chicago", cost: "14,000 pts", link: "https://www.redroof.com" }
+    ]
+  },
+  {
+    id: "motel6",
+    name: "My6",
+    averagePoints: 10000,
+    previousAveragePoints: 10000,
+    cpp: 0.5,
+    explanation: "Extreme budget. You get what you pay for.",
+    transferPartners: [],
+    redemptionExamples: [
+      { title: "Motel 6 Los Angeles", cost: "10,000 pts", link: "https://www.motel6.com" }
     ]
   },
   {

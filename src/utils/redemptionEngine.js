@@ -52,6 +52,26 @@ function calculateCost(originRegion, destRegion, airlineId, isDrivable) {
   return 55000;
 }
 
+function generateDeepLink(airlineId, originIata, destIata) {
+  const d = new Date();
+  d.setDate(d.getDate() + 60);
+  const depDate = d.toISOString().split('T')[0];
+  d.setDate(d.getDate() + 7);
+  const retDate = d.toISOString().split('T')[0];
+
+  switch(airlineId) {
+    case 'aadvantage':
+      return `https://www.aa.com/booking/search?locale=en_US&pax=1&adult=1&type=RoundTrip&searchType=Award&cabin=&depart=${originIata}&return=${destIata}&departDate=${depDate}&returnDate=${retDate}`;
+    case 'mileageplus':
+      return `https://www.united.com/en/us/fsr/choose-flights?f=${originIata}&t=${destIata}&d=${depDate}&r=${retDate}&st=award`;
+    case 'alaska':
+      return `https://www.alaskaair.com/search/flights?AOC=true&O=${originIata}&D=${destIata}&OD=${depDate}&RD=${retDate}&A=1`;
+    default:
+      // Fallback to Google Flights cash search so users can at least see schedules
+      return `https://www.google.com/travel/flights?q=Flights%20to%20${destIata}%20from%20${originIata}%20on%20${depDate}%20through%20${retDate}`;
+  }
+}
+
 export function generateDynamicAirlines(baseData, origin) {
   if (!origin) return baseData;
   
@@ -92,7 +112,7 @@ export function generateDynamicAirlines(baseData, origin) {
     const dynamicExamples = [{
       title: exampleTitle,
       cost: costString,
-      link: airline.bookingUrl
+      link: isDrivable ? airline.bookingUrl : generateDeepLink(airline.id, origin.iata, airline.primaryHub)
     }];
 
     return {

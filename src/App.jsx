@@ -4,19 +4,34 @@ import { generateDynamicAirlines } from './utils/redemptionEngine';
 import AirlineRankingCard from './components/AirlineRankingCard';
 import HotelRankingCard from './components/HotelRankingCard';
 import AirportSearch from './components/AirportSearch';
+import TransferPartnerFilter from './components/TransferPartnerFilter';
 import { Plane, Building, MapPin } from 'lucide-react';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('airlines');
   const [origin, setOrigin] = useState(null);
+  const [activeFilters, setActiveFilters] = useState([]);
+
+  const toggleFilter = (partnerKey) => {
+    setActiveFilters(prev => 
+      prev.includes(partnerKey) 
+        ? prev.filter(k => k !== partnerKey)
+        : [...prev, partnerKey]
+    );
+  };
 
   const dynamicAirlines = useMemo(() => {
     return generateDynamicAirlines(airlinesData, origin);
   }, [origin]);
 
   const airlineTiers = useMemo(() => {
-    const validAirlines = dynamicAirlines.filter(a => a.typicalRtCost <= 40000).sort((a, b) => b.milesPerPoint - a.milesPerPoint);
-    const expensiveAirlines = dynamicAirlines.filter(a => a.typicalRtCost > 40000).sort((a, b) => b.milesPerPoint - a.milesPerPoint);
+    const filteredAirlines = dynamicAirlines.filter(a => {
+      if (activeFilters.length === 0) return true;
+      return a.transferPartners.some(tp => activeFilters.includes(tp.partner));
+    });
+
+    const validAirlines = filteredAirlines.filter(a => a.typicalRtCost <= 40000).sort((a, b) => b.milesPerPoint - a.milesPerPoint);
+    const expensiveAirlines = filteredAirlines.filter(a => a.typicalRtCost > 40000).sort((a, b) => b.milesPerPoint - a.milesPerPoint);
     
     const tiers = [];
     let currentTier = [];
@@ -45,11 +60,16 @@ export default function App() {
     }
 
     return tiers;
-  }, [dynamicAirlines]);
+  }, [dynamicAirlines, activeFilters]);
 
   const hotelTiers = useMemo(() => {
-    const validHotels = hotelsData.filter(h => h.averagePoints <= 18000).sort((a, b) => a.averagePoints - b.averagePoints);
-    const expensiveHotels = hotelsData.filter(h => h.averagePoints > 18000).sort((a, b) => a.averagePoints - b.averagePoints);
+    const filteredHotels = hotelsData.filter(h => {
+      if (activeFilters.length === 0) return true;
+      return h.transferPartners.some(tp => activeFilters.includes(tp.partner));
+    });
+
+    const validHotels = filteredHotels.filter(h => h.averagePoints <= 18000).sort((a, b) => a.averagePoints - b.averagePoints);
+    const expensiveHotels = filteredHotels.filter(h => h.averagePoints > 18000).sort((a, b) => a.averagePoints - b.averagePoints);
     
     const tiers = [];
     let currentTier = [];
@@ -78,7 +98,7 @@ export default function App() {
     }
 
     return tiers;
-  }, []);
+  }, [activeFilters]);
 
   return (
     <div className="container">
@@ -89,6 +109,8 @@ export default function App() {
           optimized for the absolute furthest distance and strict nightly point limits.
         </p>
       </header>
+
+      <TransferPartnerFilter activeFilters={activeFilters} onToggle={toggleFilter} />
 
       <div className="tabs">
         <button 
