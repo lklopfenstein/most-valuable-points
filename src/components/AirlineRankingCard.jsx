@@ -43,7 +43,7 @@ export default function AirlineRankingCard({ data, rank }) {
         
         <div>
           <div className="metric-highlight" style={{ color: 'var(--success, #10b981)', background: isTooExpensive ? 'none' : 'rgba(16, 185, 129, 0.1)' }}>
-            {data.dynamicCpp ? `${data.dynamicCpp.toFixed(1)}¢` : 'N/A'}
+            {data.dynamicCpp ? `${data.dynamicCpp.toFixed(1)}¢` : (data.cpp ? `${data.cpp.toFixed(1)}¢` : 'N/A')}
           </div>
           <div className="metric-label">Dollar Value (CPP)</div>
         </div>

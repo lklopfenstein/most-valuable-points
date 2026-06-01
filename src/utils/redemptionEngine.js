@@ -105,20 +105,32 @@ export function generateDynamicAirlines(baseData, origin) {
       newExplanation = `Originating from ${originRegion} means exorbitant long-haul rates or surcharges on this program.`;
     }
 
-    // Generate Example
-    const exampleTitle = isDrivable 
-      ? `Too close to fly: ${origin.iata} to ${airline.primaryHub}`
-      : `${origin.iata} to ${airline.primaryHub} Economy (RT)`;
-    
-    const costString = generatedRtCost >= 999999 
-      ? "N/A (Drivable)" 
-      : `${generatedRtCost.toLocaleString()} pts (~$${generatedCashCost} value)`;
+    // Generate 3 Examples
+    const destinations = [
+      { iata: airline.primaryHub, region: airline.primaryRegion, type: 'Primary Hub' },
+      { iata: airline.primaryRegion === 'AS' ? 'CDG' : 'HND', region: airline.primaryRegion === 'AS' ? 'EU' : 'AS', type: 'Sweet Spot' },
+      { iata: airline.primaryRegion === 'OC' ? 'LHR' : 'SYD', region: airline.primaryRegion === 'OC' ? 'EU' : 'OC', type: 'Max Distance' }
+    ];
 
-    const dynamicExamples = [{
-      title: exampleTitle,
-      cost: costString,
-      link: isDrivable ? airline.bookingUrl : generateDeepLink(origin.iata, airline.primaryHub)
-    }];
+    const dynamicExamples = destinations.map(dest => {
+      const isDrivableDest = origin.country === 'US' && origin.iata === dest.iata;
+      const destPoints = calculateCost(originRegion, dest.region, airline.id, isDrivableDest);
+      const destCash = generateCashCost(originRegion, dest.region);
+      
+      const title = isDrivableDest 
+        ? `Too close to fly: ${origin.iata} to ${dest.iata}`
+        : `${origin.iata} to ${dest.iata} - ${dest.type}`;
+        
+      const costString = destPoints >= 999999 
+        ? "N/A (Drivable)" 
+        : `${destPoints.toLocaleString()} pts (~$${destCash} value)`;
+        
+      return {
+        title,
+        cost: costString,
+        link: isDrivableDest ? airline.bookingUrl : generateDeepLink(origin.iata, dest.iata)
+      };
+    });
 
     return {
       ...airline,
