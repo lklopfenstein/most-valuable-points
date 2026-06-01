@@ -11,6 +11,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('airlines');
   const [origin, setOrigin] = useState(null);
   const [activeFilters, setActiveFilters] = useState([]);
+  const [rankingMode, setRankingMode] = useState('distance'); // 'distance' | 'dollar'
 
   const toggleFilter = (partnerKey) => {
     setActiveFilters(prev => 
@@ -30,8 +31,17 @@ export default function App() {
       return a.transferPartners.some(tp => activeFilters.includes(tp.partner));
     });
 
-    const validAirlines = filteredAirlines.filter(a => a.typicalRtCost <= 40000).sort((a, b) => b.milesPerPoint - a.milesPerPoint);
-    const expensiveAirlines = filteredAirlines.filter(a => a.typicalRtCost > 40000).sort((a, b) => b.milesPerPoint - a.milesPerPoint);
+    const validAirlines = filteredAirlines.filter(a => a.typicalRtCost <= 40000).sort((a, b) => {
+      return rankingMode === 'distance' 
+        ? b.milesPerPoint - a.milesPerPoint 
+        : b.dynamicCpp - a.dynamicCpp;
+    });
+    
+    const expensiveAirlines = filteredAirlines.filter(a => a.typicalRtCost > 40000).sort((a, b) => {
+      return rankingMode === 'distance' 
+        ? b.milesPerPoint - a.milesPerPoint 
+        : b.dynamicCpp - a.dynamicCpp;
+    });
     
     const tiers = [];
     let currentTier = [];
@@ -42,7 +52,13 @@ export default function App() {
         currentTier.push(airline);
       } else {
         const prev = validAirlines[i - 1];
-        if (prev.milesPerPoint - airline.milesPerPoint >= 0.02) {
+        const difference = rankingMode === 'distance' 
+          ? prev.milesPerPoint - airline.milesPerPoint 
+          : prev.dynamicCpp - airline.dynamicCpp;
+          
+        const threshold = rankingMode === 'distance' ? 0.02 : 0.3;
+
+        if (difference >= threshold) {
           tiers.push({ name: `Tier ${tierIndex}`, items: currentTier });
           currentTier = [airline];
           tierIndex++;
@@ -60,7 +76,7 @@ export default function App() {
     }
 
     return tiers;
-  }, [dynamicAirlines, activeFilters]);
+  }, [dynamicAirlines, activeFilters, rankingMode]);
 
   const hotelTiers = useMemo(() => {
     const filteredHotels = hotelsData.filter(h => {
@@ -145,10 +161,45 @@ export default function App() {
               <AirportSearch onSelect={(airport) => setOrigin(airport)} />
               
               {origin && (
-                <div style={{ marginTop: '2rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(59, 130, 246, 0.1)', padding: '0.5rem 1rem', borderRadius: '99px', border: '1px solid rgba(59, 130, 246, 0.3)', color: 'var(--accent-primary)' }}>
-                  <MapPin size={16} />
-                  <span>Showing dynamic valuations originating from: <strong>{origin.iata} ({origin.city})</strong></span>
-                  <button onClick={() => setOrigin(null)} style={{ background: 'none', border: 'none', color: 'inherit', marginLeft: '0.5rem', cursor: 'pointer', textDecoration: 'underline' }}>Clear</button>
+                <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(59, 130, 246, 0.1)', padding: '0.5rem 1rem', borderRadius: '99px', border: '1px solid rgba(59, 130, 246, 0.3)', color: 'var(--accent-primary)' }}>
+                    <MapPin size={16} />
+                    <span>Showing dynamic valuations originating from: <strong>{origin.iata} ({origin.city})</strong></span>
+                    <button onClick={() => setOrigin(null)} style={{ background: 'none', border: 'none', color: 'inherit', marginLeft: '0.5rem', cursor: 'pointer', textDecoration: 'underline' }}>Clear</button>
+                  </div>
+                  
+                  <div style={{ display: 'flex', background: 'var(--glass-bg)', border: '1px solid var(--glass-border)', borderRadius: '12px', padding: '0.3rem' }}>
+                    <button 
+                      onClick={() => setRankingMode('distance')}
+                      style={{
+                        padding: '0.75rem 1.5rem',
+                        background: rankingMode === 'distance' ? 'var(--accent-primary)' : 'transparent',
+                        color: rankingMode === 'distance' ? '#fff' : 'var(--text-secondary)',
+                        border: 'none',
+                        borderRadius: '8px',
+                        cursor: 'pointer',
+                        fontWeight: 600,
+                        transition: 'all 0.2s ease'
+                      }}
+                    >
+                      Rank by Furthest Distance
+                    </button>
+                    <button 
+                      onClick={() => setRankingMode('dollar')}
+                      style={{
+                        padding: '0.75rem 1.5rem',
+                        background: rankingMode === 'dollar' ? 'var(--accent-primary)' : 'transparent',
+                        color: rankingMode === 'dollar' ? '#fff' : 'var(--text-secondary)',
+                        border: 'none',
+                        borderRadius: '8px',
+                        cursor: 'pointer',
+                        fontWeight: 600,
+                        transition: 'all 0.2s ease'
+                      }}
+                    >
+                      Rank by Highest Dollar Value
+                    </button>
+                  </div>
                 </div>
               )}
             </div>

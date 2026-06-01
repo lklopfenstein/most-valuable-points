@@ -52,24 +52,23 @@ function calculateCost(originRegion, destRegion, airlineId, isDrivable) {
   return 55000;
 }
 
-function generateDeepLink(airlineId, originIata, destIata) {
+function generateCashCost(originRegion, destRegion) {
+  if (originRegion === destRegion) return 350; // Domestic/short-haul average RT
+  const pair = [originRegion, destRegion].sort().join('-');
+  if (pair === 'EU-NA') return 900;
+  if (pair === 'AS-NA') return 1200;
+  if (pair === 'ME-NA') return 1100;
+  return 800; // Fallback
+}
+
+function generateDeepLink(originIata, destIata) {
   const d = new Date();
   d.setDate(d.getDate() + 60);
   const depDate = d.toISOString().split('T')[0];
   d.setDate(d.getDate() + 7);
   const retDate = d.toISOString().split('T')[0];
 
-  switch(airlineId) {
-    case 'aadvantage':
-      return `https://www.aa.com/booking/search?locale=en_US&pax=1&adult=1&type=RoundTrip&searchType=Award&cabin=&depart=${originIata}&return=${destIata}&departDate=${depDate}&returnDate=${retDate}`;
-    case 'mileageplus':
-      return `https://www.united.com/en/us/fsr/choose-flights?f=${originIata}&t=${destIata}&d=${depDate}&r=${retDate}&st=award`;
-    case 'alaska':
-      return `https://www.alaskaair.com/search/flights?AOC=true&O=${originIata}&D=${destIata}&OD=${depDate}&RD=${retDate}&A=1`;
-    default:
-      // Fallback to Google Flights cash search so users can at least see schedules
-      return `https://www.google.com/travel/flights?q=Flights%20to%20${destIata}%20from%20${originIata}%20on%20${depDate}%20through%20${retDate}`;
-  }
+  return `https://www.google.com/travel/flights?q=Flights%20to%20${destIata}%20from%20${originIata}%20on%20${depDate}%20through%20${retDate}`;
 }
 
 export function generateDynamicAirlines(baseData, origin) {
@@ -85,8 +84,12 @@ export function generateDynamicAirlines(baseData, origin) {
     // Very naive drivable logic: same country and very close hub
     const isDrivable = origin.country === 'US' && origin.iata === airline.primaryHub;
 
-    // Calculate dynamic RT cost
+    // Calculate dynamic RT cost and dynamic CPP
     const generatedRtCost = calculateCost(originRegion, airline.primaryRegion, airline.id, isDrivable);
+    const generatedCashCost = generateCashCost(originRegion, airline.primaryRegion);
+    
+    // cpp = (cash / points) * 100
+    const dynamicCpp = isDrivable ? 0 : (generatedCashCost / generatedRtCost) * 100;
     
     // Adjust value multipliers based on the calculated cost relative to the program's base power
     if (generatedRtCost <= 25000) multiplier = 1.5;
@@ -107,18 +110,22 @@ export function generateDynamicAirlines(baseData, origin) {
       ? `Too close to fly: ${origin.iata} to ${airline.primaryHub}`
       : `${origin.iata} to ${airline.primaryHub} Economy (RT)`;
     
-    const costString = generatedRtCost >= 999999 ? "N/A (Drivable)" : `${generatedRtCost.toLocaleString()} pts`;
+    const costString = generatedRtCost >= 999999 
+      ? "N/A (Drivable)" 
+      : `${generatedRtCost.toLocaleString()} pts (~$${generatedCashCost} value)`;
 
     const dynamicExamples = [{
       title: exampleTitle,
       cost: costString,
-      link: isDrivable ? airline.bookingUrl : generateDeepLink(airline.id, origin.iata, airline.primaryHub)
+      link: isDrivable ? airline.bookingUrl : generateDeepLink(origin.iata, airline.primaryHub)
     }];
 
     return {
       ...airline,
       milesPerPoint: airline.milesPerPoint * multiplier,
       typicalRtCost: generatedRtCost,
+      dynamicCpp: dynamicCpp,
+      cashEquivalent: generatedCashCost,
       explanation: newExplanation,
       redemptionExamples: dynamicExamples
     };

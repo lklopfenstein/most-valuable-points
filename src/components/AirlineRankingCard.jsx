@@ -33,14 +33,23 @@ export default function AirlineRankingCard({ data, rank }) {
         </div>
       )}
       
-      <div style={{ marginTop: isTooExpensive ? '1rem' : '1.5rem' }}>
-        <div className="metric-highlight" style={{ color: isTooExpensive ? 'var(--danger)' : 'inherit', background: isTooExpensive ? 'none' : '' }}>
-          {milesPerPoint.toFixed(2)}
+      <div style={{ marginTop: isTooExpensive ? '1rem' : '1.5rem', display: 'flex', gap: '2rem' }}>
+        <div>
+          <div className="metric-highlight" style={{ color: isTooExpensive ? 'var(--danger)' : 'inherit', background: isTooExpensive ? 'none' : '' }}>
+            {milesPerPoint.toFixed(2)}
+          </div>
+          <div className="metric-label">Miles Per Point</div>
         </div>
-        <div className="metric-label">Miles Per Point</div>
-        <div className="cpp-val">
-          Typical RT Cost: {typicalRtCost >= 999999 ? 'N/A (Drivable)' : `${typicalRtCost.toLocaleString()} pts`}
+        
+        <div>
+          <div className="metric-highlight" style={{ color: 'var(--success, #10b981)', background: isTooExpensive ? 'none' : 'rgba(16, 185, 129, 0.1)' }}>
+            {data.dynamicCpp ? `${data.dynamicCpp.toFixed(1)}¢` : 'N/A'}
+          </div>
+          <div className="metric-label">Dollar Value (CPP)</div>
         </div>
+      </div>
+      <div className="cpp-val" style={{ marginTop: '0.75rem' }}>
+        Typical RT Cost: {typicalRtCost >= 999999 ? 'N/A (Drivable)' : `${typicalRtCost.toLocaleString()} pts`}
       </div>
 
       <div className={`explanation ${isTooExpensive ? 'danger' : ''}`}>
