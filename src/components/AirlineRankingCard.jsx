@@ -35,14 +35,14 @@ export default function AirlineRankingCard({ data, rank }) {
       
       <div style={{ marginTop: isTooExpensive ? '1rem' : '1.5rem', display: 'flex', gap: '2rem' }}>
         <div>
-          <div className="metric-highlight" style={{ background: isTooExpensive ? 'var(--danger)' : '' }}>
+          <div style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1, color: isTooExpensive ? 'var(--danger)' : 'inherit' }} className={isTooExpensive ? '' : 'metric-highlight'}>
             {milesPerPoint.toFixed(2)}
           </div>
           <div className="metric-label">Miles Per Point</div>
         </div>
         
         <div>
-          <div className="metric-highlight" style={{ background: isTooExpensive ? 'var(--danger)' : 'var(--success, #10b981)' }}>
+          <div style={{ fontSize: '2.5rem', fontWeight: 800, lineHeight: 1, color: isTooExpensive ? 'var(--danger)' : 'var(--success, #10b981)' }}>
             {data.dynamicCpp ? `${data.dynamicCpp.toFixed(1)}¢` : (data.cpp ? `${data.cpp.toFixed(1)}¢` : 'N/A')}
           </div>
           <div className="metric-label">Dollar Value (CPP)</div>

@@ -14,11 +14,11 @@ function getOriginRegion(countryCode) {
   return 'OTHER';
 }
 
-function calculateCost(originRegion, destRegion, airline, isDrivable) {
+function calculateCost(originRegion, destRegion, airline, isDrivable, destType = '') {
   if (isDrivable) return 999999; // Force into Too Freakin Expensive
 
   if (airline.model === 'revenue') {
-    const cashCost = generateCashCost(originRegion, destRegion);
+    const cashCost = generateCashCost(originRegion, destRegion, destType);
     return Math.round(cashCost / (airline.cpp / 100));
   }
 
@@ -59,13 +59,21 @@ function calculateCost(originRegion, destRegion, airline, isDrivable) {
   return 55000;
 }
 
-function generateCashCost(originRegion, destRegion) {
-  if (originRegion === destRegion) return 350; // Domestic/short-haul average RT
-  const pair = [originRegion, destRegion].sort().join('-');
-  if (pair === 'EU-NA') return 900;
-  if (pair === 'AS-NA') return 1200;
-  if (pair === 'ME-NA') return 1100;
-  return 800; // Fallback
+function generateCashCost(originRegion, destRegion, destType = '') {
+  let baseCash = 800;
+  if (originRegion === destRegion) {
+    if (destType.includes('Hub')) baseCash = 200;
+    else if (destType.includes('Sweet Spot')) baseCash = 250;
+    else if (destType.includes('Max Distance')) baseCash = 500;
+    else baseCash = 350;
+  } else {
+    const pair = [originRegion, destRegion].sort().join('-');
+    if (pair === 'EU-NA') baseCash = destType.includes('Sweet Spot') ? 600 : 900;
+    else if (pair === 'AS-NA') baseCash = destType.includes('Sweet Spot') ? 900 : 1300;
+    else if (pair === 'ME-NA') baseCash = 1100;
+    else baseCash = 800;
+  }
+  return baseCash;
 }
 
 function generateDeepLink(originIata, destIata) {
@@ -121,8 +129,8 @@ export function generateDynamicAirlines(baseData, origin) {
 
     const dynamicExamples = destinations.map(dest => {
       const isDrivableDest = origin.country === 'US' && origin.iata === dest.iata;
-      const destPoints = calculateCost(originRegion, dest.region, airline, isDrivableDest);
-      const destCash = generateCashCost(originRegion, dest.region);
+      const destPoints = calculateCost(originRegion, dest.region, airline, isDrivableDest, dest.type);
+      const destCash = generateCashCost(originRegion, dest.region, dest.type);
       
       const title = isDrivableDest 
         ? `Too close to fly: ${origin.iata} to ${dest.iata}`
