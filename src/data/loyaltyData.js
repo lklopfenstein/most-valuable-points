@@ -18,7 +18,29 @@ export const airlinesData = [
     primaryRegion: "NA",
     bookingUrl: "https://www.alaskaair.com",
     explanation: "Excellent distance-based partner award chart.",
-    transferPartners: [{ partner: "Bilt", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
+    transferPartners: [
+      {
+        partner: "Bilt",
+        ratio: "1:1"
+      },
+      {
+        partner: "Marriott",
+        ratio: "3:1"
+      }
+    ],
+    model: "chart",
+    customDestinations: {
+      sweetSpot: {
+        iata: "HND",
+        region: "AS",
+        desc: "Tokyo (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "SYD",
+        region: "OC",
+        desc: "Sydney (Max Distance)"
+      }
+    }
   },
   {
     id: "iberia",
@@ -30,19 +52,87 @@ export const airlinesData = [
     primaryRegion: "EU",
     bookingUrl: "https://www.iberia.com",
     explanation: "Outstanding off-peak pricing on Avios.",
-    transferPartners: [{ partner: "Chase", ratio: "1:1" }, { partner: "Amex", ratio: "1:1" }, { partner: "Bilt", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
+    transferPartners: [
+      {
+        partner: "Chase",
+        ratio: "1:1"
+      },
+      {
+        partner: "Amex",
+        ratio: "1:1"
+      },
+      {
+        partner: "Bilt",
+        ratio: "1:1"
+      },
+      {
+        partner: "Marriott",
+        ratio: "3:1"
+      }
+    ],
+    model: "chart",
+    customDestinations: {
+      sweetSpot: {
+        iata: "ORD",
+        region: "NA",
+        desc: "Chicago (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "EZE",
+        region: "SA",
+        desc: "Buenos Aires (Max Distance)"
+      }
+    }
   },
   {
     id: "flyingblue",
     name: "Air France/KLM Flying Blue",
-    milesPerPoint: 0.20,
+    milesPerPoint: 0.2,
     previousMilesPerPoint: 0.19,
     cpp: 1.5,
     primaryHub: "CDG",
     primaryRegion: "EU",
     bookingUrl: "https://www.flyingblue.us",
     explanation: "Promo Rewards offer consistent value.",
-    transferPartners: [{ partner: "Chase", ratio: "1:1" }, { partner: "Amex", ratio: "1:1" }, { partner: "Citi", ratio: "1:1" }, { partner: "CapitalOne", ratio: "1:1" }, { partner: "Bilt", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
+    transferPartners: [
+      {
+        partner: "Chase",
+        ratio: "1:1"
+      },
+      {
+        partner: "Amex",
+        ratio: "1:1"
+      },
+      {
+        partner: "Citi",
+        ratio: "1:1"
+      },
+      {
+        partner: "CapitalOne",
+        ratio: "1:1"
+      },
+      {
+        partner: "Bilt",
+        ratio: "1:1"
+      },
+      {
+        partner: "Marriott",
+        ratio: "3:1"
+      }
+    ],
+    model: "chart",
+    customDestinations: {
+      sweetSpot: {
+        iata: "JFK",
+        region: "NA",
+        desc: "New York (Promo Reward)"
+      },
+      maxDistance: {
+        iata: "NRT",
+        region: "AS",
+        desc: "Tokyo (Max Distance)"
+      }
+    }
   },
   {
     id: "turkish",
@@ -54,7 +144,37 @@ export const airlinesData = [
     primaryRegion: "EU",
     bookingUrl: "https://www.turkishairlines.com",
     explanation: "Great Star Alliance partner sweet spots.",
-    transferPartners: [{ partner: "Citi", ratio: "1:1" }, { partner: "CapitalOne", ratio: "1:1" }, { partner: "Bilt", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
+    transferPartners: [
+      {
+        partner: "Citi",
+        ratio: "1:1"
+      },
+      {
+        partner: "CapitalOne",
+        ratio: "1:1"
+      },
+      {
+        partner: "Bilt",
+        ratio: "1:1"
+      },
+      {
+        partner: "Marriott",
+        ratio: "3:1"
+      }
+    ],
+    model: "chart",
+    customDestinations: {
+      sweetSpot: {
+        iata: "HNL",
+        region: "NA",
+        desc: "Hawaii (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "CPT",
+        region: "AF",
+        desc: "Cape Town (Max Distance)"
+      }
+    }
   },
   {
     id: "virgin",
@@ -66,7 +186,45 @@ export const airlinesData = [
     primaryRegion: "EU",
     bookingUrl: "https://flywith.virginatlantic.com",
     explanation: "Great for Delta non-stop flights.",
-    transferPartners: [{ partner: "Chase", ratio: "1:1" }, { partner: "Amex", ratio: "1:1" }, { partner: "Citi", ratio: "1:1" }, { partner: "CapitalOne", ratio: "1:1" }, { partner: "Bilt", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
+    transferPartners: [
+      {
+        partner: "Chase",
+        ratio: "1:1"
+      },
+      {
+        partner: "Amex",
+        ratio: "1:1"
+      },
+      {
+        partner: "Citi",
+        ratio: "1:1"
+      },
+      {
+        partner: "CapitalOne",
+        ratio: "1:1"
+      },
+      {
+        partner: "Bilt",
+        ratio: "1:1"
+      },
+      {
+        partner: "Marriott",
+        ratio: "3:1"
+      }
+    ],
+    model: "chart",
+    customDestinations: {
+      sweetSpot: {
+        iata: "JFK",
+        region: "NA",
+        desc: "New York (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "HND",
+        region: "AS",
+        desc: "Tokyo (Max Distance)"
+      }
+    }
   },
   {
     id: "avios-ba",
@@ -78,7 +236,41 @@ export const airlinesData = [
     primaryRegion: "EU",
     bookingUrl: "https://www.britishairways.com",
     explanation: "Distance-based chart is perfect for short-hauls.",
-    transferPartners: [{ partner: "Chase", ratio: "1:1" }, { partner: "Amex", ratio: "1:1" }, { partner: "CapitalOne", ratio: "1:1" }, { partner: "Bilt", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
+    transferPartners: [
+      {
+        partner: "Chase",
+        ratio: "1:1"
+      },
+      {
+        partner: "Amex",
+        ratio: "1:1"
+      },
+      {
+        partner: "CapitalOne",
+        ratio: "1:1"
+      },
+      {
+        partner: "Bilt",
+        ratio: "1:1"
+      },
+      {
+        partner: "Marriott",
+        ratio: "3:1"
+      }
+    ],
+    model: "chart",
+    customDestinations: {
+      sweetSpot: {
+        iata: "JFK",
+        region: "NA",
+        desc: "New York (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "SIN",
+        region: "AS",
+        desc: "Singapore (Max Distance)"
+      }
+    }
   },
   {
     id: "ana",
@@ -90,7 +282,29 @@ export const airlinesData = [
     primaryRegion: "AS",
     bookingUrl: "https://www.ana.co.jp",
     explanation: "Amazing value but fuel surcharges apply.",
-    transferPartners: [{ partner: "Amex", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
+    transferPartners: [
+      {
+        partner: "Amex",
+        ratio: "1:1"
+      },
+      {
+        partner: "Marriott",
+        ratio: "3:1"
+      }
+    ],
+    model: "chart",
+    customDestinations: {
+      sweetSpot: {
+        iata: "LAX",
+        region: "NA",
+        desc: "Los Angeles (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "LHR",
+        region: "EU",
+        desc: "London (Max Distance)"
+      }
+    }
   },
   {
     id: "aeroplan",
@@ -102,7 +316,41 @@ export const airlinesData = [
     primaryRegion: "NA",
     bookingUrl: "https://www.aircanada.com",
     explanation: "No carrier surcharges on massive partner network.",
-    transferPartners: [{ partner: "Chase", ratio: "1:1" }, { partner: "Amex", ratio: "1:1" }, { partner: "CapitalOne", ratio: "1:1" }, { partner: "Bilt", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
+    transferPartners: [
+      {
+        partner: "Chase",
+        ratio: "1:1"
+      },
+      {
+        partner: "Amex",
+        ratio: "1:1"
+      },
+      {
+        partner: "CapitalOne",
+        ratio: "1:1"
+      },
+      {
+        partner: "Bilt",
+        ratio: "1:1"
+      },
+      {
+        partner: "Marriott",
+        ratio: "3:1"
+      }
+    ],
+    model: "chart",
+    customDestinations: {
+      sweetSpot: {
+        iata: "FRA",
+        region: "EU",
+        desc: "Frankfurt (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "SYD",
+        region: "OC",
+        desc: "Sydney (Max Distance)"
+      }
+    }
   },
   {
     id: "lifemiles",
@@ -114,7 +362,37 @@ export const airlinesData = [
     primaryRegion: "SA",
     bookingUrl: "https://www.lifemiles.com",
     explanation: "Quirky routing rules but cheap Star Alliance awards.",
-    transferPartners: [{ partner: "Amex", ratio: "1:1" }, { partner: "Citi", ratio: "1:1" }, { partner: "CapitalOne", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
+    transferPartners: [
+      {
+        partner: "Amex",
+        ratio: "1:1"
+      },
+      {
+        partner: "Citi",
+        ratio: "1:1"
+      },
+      {
+        partner: "CapitalOne",
+        ratio: "1:1"
+      },
+      {
+        partner: "Marriott",
+        ratio: "3:1"
+      }
+    ],
+    model: "chart",
+    customDestinations: {
+      sweetSpot: {
+        iata: "LIS",
+        region: "EU",
+        desc: "Lisbon (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "HND",
+        region: "AS",
+        desc: "Tokyo (Max Distance)"
+      }
+    }
   },
   {
     id: "krisflyer",
@@ -126,7 +404,41 @@ export const airlinesData = [
     primaryRegion: "AS",
     bookingUrl: "https://www.singaporeair.com",
     explanation: "Great premium cabin access on SQ metal.",
-    transferPartners: [{ partner: "Chase", ratio: "1:1" }, { partner: "Amex", ratio: "1:1" }, { partner: "Citi", ratio: "1:1" }, { partner: "CapitalOne", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
+    transferPartners: [
+      {
+        partner: "Chase",
+        ratio: "1:1"
+      },
+      {
+        partner: "Amex",
+        ratio: "1:1"
+      },
+      {
+        partner: "Citi",
+        ratio: "1:1"
+      },
+      {
+        partner: "CapitalOne",
+        ratio: "1:1"
+      },
+      {
+        partner: "Marriott",
+        ratio: "3:1"
+      }
+    ],
+    model: "chart",
+    customDestinations: {
+      sweetSpot: {
+        iata: "FRA",
+        region: "EU",
+        desc: "Frankfurt (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "JFK",
+        region: "NA",
+        desc: "New York (Max Distance)"
+      }
+    }
   },
   {
     id: "qatar",
@@ -138,7 +450,29 @@ export const airlinesData = [
     primaryRegion: "ME",
     bookingUrl: "https://www.qatarairways.com",
     explanation: "Shares Avios with BA and Iberia.",
-    transferPartners: [{ partner: "Citi", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
+    transferPartners: [
+      {
+        partner: "Citi",
+        ratio: "1:1"
+      },
+      {
+        partner: "Marriott",
+        ratio: "3:1"
+      }
+    ],
+    model: "chart",
+    customDestinations: {
+      sweetSpot: {
+        iata: "MLE",
+        region: "AS",
+        desc: "Maldives (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "JFK",
+        region: "NA",
+        desc: "New York (Max Distance)"
+      }
+    }
   },
   {
     id: "cathay",
@@ -150,7 +484,41 @@ export const airlinesData = [
     primaryRegion: "AS",
     bookingUrl: "https://www.cathaypacific.com",
     explanation: "Distance-based Oneworld chart.",
-    transferPartners: [{ partner: "Amex", ratio: "1:1" }, { partner: "Citi", ratio: "1:1" }, { partner: "CapitalOne", ratio: "1:1" }, { partner: "Bilt", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
+    transferPartners: [
+      {
+        partner: "Amex",
+        ratio: "1:1"
+      },
+      {
+        partner: "Citi",
+        ratio: "1:1"
+      },
+      {
+        partner: "CapitalOne",
+        ratio: "1:1"
+      },
+      {
+        partner: "Bilt",
+        ratio: "1:1"
+      },
+      {
+        partner: "Marriott",
+        ratio: "3:1"
+      }
+    ],
+    model: "chart",
+    customDestinations: {
+      sweetSpot: {
+        iata: "LHR",
+        region: "EU",
+        desc: "London (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "JFK",
+        region: "NA",
+        desc: "New York (Max Distance)"
+      }
+    }
   },
   {
     id: "hawaiian",
@@ -162,7 +530,29 @@ export const airlinesData = [
     primaryRegion: "OC",
     bookingUrl: "https://www.hawaiianairlines.com",
     explanation: "Limited value outside of direct Hawaii routes.",
-    transferPartners: [{ partner: "Amex", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
+    transferPartners: [
+      {
+        partner: "Amex",
+        ratio: "1:1"
+      },
+      {
+        partner: "Marriott",
+        ratio: "3:1"
+      }
+    ],
+    model: "chart",
+    customDestinations: {
+      sweetSpot: {
+        iata: "LAX",
+        region: "NA",
+        desc: "Los Angeles (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "JFK",
+        region: "NA",
+        desc: "New York (Max Distance)"
+      }
+    }
   },
   {
     id: "aadvantage",
@@ -174,7 +564,29 @@ export const airlinesData = [
     primaryRegion: "NA",
     bookingUrl: "https://www.aa.com",
     explanation: "Web specials often devalue standard awards.",
-    transferPartners: [{ partner: "Bilt", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
+    transferPartners: [
+      {
+        partner: "Bilt",
+        ratio: "1:1"
+      },
+      {
+        partner: "Marriott",
+        ratio: "3:1"
+      }
+    ],
+    model: "chart",
+    customDestinations: {
+      sweetSpot: {
+        iata: "LHR",
+        region: "EU",
+        desc: "London (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "SYD",
+        region: "OC",
+        desc: "Sydney (Max Distance)"
+      }
+    }
   },
   {
     id: "jal",
@@ -186,7 +598,25 @@ export const airlinesData = [
     primaryRegion: "AS",
     bookingUrl: "https://www.jal.co.jp",
     explanation: "Strict award charts limit flexibility.",
-    transferPartners: [{ partner: "Marriott", ratio: "3:1" }]
+    transferPartners: [
+      {
+        partner: "Marriott",
+        ratio: "3:1"
+      }
+    ],
+    model: "chart",
+    customDestinations: {
+      sweetSpot: {
+        iata: "SFO",
+        region: "NA",
+        desc: "San Francisco (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "LHR",
+        region: "EU",
+        desc: "London (Max Distance)"
+      }
+    }
   },
   {
     id: "mileageplus",
@@ -198,19 +628,83 @@ export const airlinesData = [
     primaryRegion: "NA",
     bookingUrl: "https://www.united.com",
     explanation: "Massive recent dynamic pricing devaluations.",
-    transferPartners: [{ partner: "Chase", ratio: "1:1" }, { partner: "Bilt", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1.1" }]
+    transferPartners: [
+      {
+        partner: "Chase",
+        ratio: "1:1"
+      },
+      {
+        partner: "Bilt",
+        ratio: "1:1"
+      },
+      {
+        partner: "Marriott",
+        ratio: "3:1.1"
+      }
+    ],
+    model: "chart",
+    customDestinations: {
+      sweetSpot: {
+        iata: "FRA",
+        region: "EU",
+        desc: "Frankfurt (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "SYD",
+        region: "OC",
+        desc: "Sydney (Max Distance)"
+      }
+    }
   },
   {
     id: "emirates",
     name: "Emirates Skywards",
     milesPerPoint: 0.06,
     previousMilesPerPoint: 0.06,
-    cpp: 1.0,
+    cpp: 1,
     primaryHub: "DXB",
     primaryRegion: "ME",
     bookingUrl: "https://www.emirates.com",
     explanation: "High point requirements and brutal surcharges.",
-    transferPartners: [{ partner: "Chase", ratio: "1:1" }, { partner: "Amex", ratio: "1:1" }, { partner: "Citi", ratio: "1:1" }, { partner: "CapitalOne", ratio: "1:1" }, { partner: "Bilt", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
+    transferPartners: [
+      {
+        partner: "Chase",
+        ratio: "1:1"
+      },
+      {
+        partner: "Amex",
+        ratio: "1:1"
+      },
+      {
+        partner: "Citi",
+        ratio: "1:1"
+      },
+      {
+        partner: "CapitalOne",
+        ratio: "1:1"
+      },
+      {
+        partner: "Bilt",
+        ratio: "1:1"
+      },
+      {
+        partner: "Marriott",
+        ratio: "3:1"
+      }
+    ],
+    model: "chart",
+    customDestinations: {
+      sweetSpot: {
+        iata: "MXP",
+        region: "EU",
+        desc: "Milan (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "JFK",
+        region: "NA",
+        desc: "New York (Max Distance)"
+      }
+    }
   },
   {
     id: "etihad",
@@ -222,19 +716,79 @@ export const airlinesData = [
     primaryRegion: "ME",
     bookingUrl: "https://www.etihad.com",
     explanation: "Recent devaluations effectively killed partner sweet spots.",
-    transferPartners: [{ partner: "Amex", ratio: "1:1" }, { partner: "Citi", ratio: "1:1" }, { partner: "CapitalOne", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
+    transferPartners: [
+      {
+        partner: "Amex",
+        ratio: "1:1"
+      },
+      {
+        partner: "Citi",
+        ratio: "1:1"
+      },
+      {
+        partner: "CapitalOne",
+        ratio: "1:1"
+      },
+      {
+        partner: "Marriott",
+        ratio: "3:1"
+      }
+    ],
+    model: "chart",
+    customDestinations: {
+      sweetSpot: {
+        iata: "LHR",
+        region: "EU",
+        desc: "London (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "JFK",
+        region: "NA",
+        desc: "New York (Max Distance)"
+      }
+    }
   },
   {
     id: "qantas",
     name: "Qantas Frequent Flyer",
     milesPerPoint: 0.05,
     previousMilesPerPoint: 0.05,
-    cpp: 1.0,
+    cpp: 1,
     primaryHub: "SYD",
     primaryRegion: "OC",
     bookingUrl: "https://www.qantas.com",
     explanation: "Distance-based chart penalizes long routes.",
-    transferPartners: [{ partner: "Amex", ratio: "1:1" }, { partner: "Citi", ratio: "1:1" }, { partner: "CapitalOne", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
+    transferPartners: [
+      {
+        partner: "Amex",
+        ratio: "1:1"
+      },
+      {
+        partner: "Citi",
+        ratio: "1:1"
+      },
+      {
+        partner: "CapitalOne",
+        ratio: "1:1"
+      },
+      {
+        partner: "Marriott",
+        ratio: "3:1"
+      }
+    ],
+    model: "chart",
+    customDestinations: {
+      sweetSpot: {
+        iata: "LAX",
+        region: "NA",
+        desc: "Los Angeles (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "LHR",
+        region: "EU",
+        desc: "London (Max Distance)"
+      }
+    }
   },
   {
     id: "skymiles",
@@ -246,7 +800,29 @@ export const airlinesData = [
     primaryRegion: "NA",
     bookingUrl: "https://www.delta.com",
     explanation: "SkyPesos. Highly dynamic and heavily devalued.",
-    transferPartners: [{ partner: "Amex", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
+    transferPartners: [
+      {
+        partner: "Amex",
+        ratio: "1:1"
+      },
+      {
+        partner: "Marriott",
+        ratio: "3:1"
+      }
+    ],
+    model: "chart",
+    customDestinations: {
+      sweetSpot: {
+        iata: "CUN",
+        region: "NA",
+        desc: "Cancun (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "SYD",
+        region: "OC",
+        desc: "Sydney (Max Distance)"
+      }
+    }
   },
   {
     id: "southwest",
@@ -258,7 +834,29 @@ export const airlinesData = [
     primaryRegion: "NA",
     bookingUrl: "https://www.southwest.com",
     explanation: "Fixed value means any far destination requires a massive cache of points.",
-    transferPartners: [{ partner: "Chase", ratio: "1:1" }, { partner: "Marriott", ratio: "3:1" }]
+    transferPartners: [
+      {
+        partner: "Chase",
+        ratio: "1:1"
+      },
+      {
+        partner: "Marriott",
+        ratio: "3:1"
+      }
+    ],
+    model: "revenue",
+    customDestinations: {
+      sweetSpot: {
+        iata: "AUS",
+        region: "NA",
+        desc: "Austin (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "SJO",
+        region: "NA",
+        desc: "Costa Rica (Max Distance)"
+      }
+    }
   },
   {
     id: "jetblue",
@@ -270,19 +868,58 @@ export const airlinesData = [
     primaryRegion: "NA",
     bookingUrl: "https://www.jetblue.com",
     explanation: "Revenue-based model makes long-hauls extremely expensive.",
-    transferPartners: [{ partner: "Chase", ratio: "1:1" }, { partner: "Amex", ratio: "1:1.25" }, { partner: "Citi", ratio: "1:1" }]
+    transferPartners: [
+      {
+        partner: "Chase",
+        ratio: "1:1"
+      },
+      {
+        partner: "Amex",
+        ratio: "1:1.25"
+      },
+      {
+        partner: "Citi",
+        ratio: "1:1"
+      }
+    ],
+    model: "revenue",
+    customDestinations: {
+      sweetSpot: {
+        iata: "CUN",
+        region: "NA",
+        desc: "Cancun (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "LHR",
+        region: "EU",
+        desc: "London (Max Distance)"
+      }
+    }
   },
   {
     id: "spirit",
     name: "Free Spirit",
     milesPerPoint: 0.03,
     previousMilesPerPoint: 0.03,
-    cpp: 1.0,
+    cpp: 1,
     primaryHub: "FLL",
     primaryRegion: "NA",
     bookingUrl: "https://www.spirit.com",
     explanation: "Revenue-based. Low cash cost means you fly zero distance per point.",
-    transferPartners: []
+    transferPartners: [],
+    model: "revenue",
+    customDestinations: {
+      sweetSpot: {
+        iata: "LAS",
+        region: "NA",
+        desc: "Las Vegas (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "BOG",
+        region: "SA",
+        desc: "Bogota (Max Distance)"
+      }
+    }
   },
   {
     id: "frontier",
@@ -294,19 +931,50 @@ export const airlinesData = [
     primaryRegion: "NA",
     bookingUrl: "https://www.flyfrontier.com",
     explanation: "Revenue-based budget carrier. Abysmal distance per point.",
-    transferPartners: [{ partner: "Marriott", ratio: "3:1" }]
+    transferPartners: [
+      {
+        partner: "Marriott",
+        ratio: "3:1"
+      }
+    ],
+    model: "revenue",
+    customDestinations: {
+      sweetSpot: {
+        iata: "MCO",
+        region: "NA",
+        desc: "Orlando (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "CUN",
+        region: "NA",
+        desc: "Cancun (Max Distance)"
+      }
+    }
   },
   {
     id: "allegiant",
     name: "Allegiant Allways Rewards",
     milesPerPoint: 0.02,
     previousMilesPerPoint: 0.02,
-    cpp: 1.0,
+    cpp: 1,
     primaryHub: "LAS",
     primaryRegion: "NA",
     bookingUrl: "https://www.allegiantair.com",
     explanation: "Points are fixed cash equivalents. You get nowhere fast.",
-    transferPartners: []
+    transferPartners: [],
+    model: "revenue",
+    customDestinations: {
+      sweetSpot: {
+        iata: "PIE",
+        region: "NA",
+        desc: "St. Pete (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "LAS",
+        region: "NA",
+        desc: "Las Vegas (Max Distance)"
+      }
+    }
   },
   {
     id: "airasia",
@@ -318,7 +986,20 @@ export const airlinesData = [
     primaryRegion: "AS",
     bookingUrl: "https://www.airasia.com",
     explanation: "Extreme budget carrier in Asia. Points are largely worthless.",
-    transferPartners: []
+    transferPartners: [],
+    model: "revenue",
+    customDestinations: {
+      sweetSpot: {
+        iata: "DPS",
+        region: "AS",
+        desc: "Bali (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "SYD",
+        region: "OC",
+        desc: "Sydney (Max Distance)"
+      }
+    }
   },
   {
     id: "pegasus",
@@ -330,7 +1011,20 @@ export const airlinesData = [
     primaryRegion: "EU",
     bookingUrl: "https://www.flypgs.com",
     explanation: "Budget airline covering EU/ME. Revenue-based system.",
-    transferPartners: []
+    transferPartners: [],
+    model: "revenue",
+    customDestinations: {
+      sweetSpot: {
+        iata: "DXB",
+        region: "ME",
+        desc: "Dubai (Sweet Spot)"
+      },
+      maxDistance: {
+        iata: "LHR",
+        region: "EU",
+        desc: "London (Max Distance)"
+      }
+    }
   }
 ];
 

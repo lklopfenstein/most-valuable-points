@@ -14,8 +14,15 @@ function getOriginRegion(countryCode) {
   return 'OTHER';
 }
 
-function calculateCost(originRegion, destRegion, airlineId, isDrivable) {
+function calculateCost(originRegion, destRegion, airline, isDrivable) {
   if (isDrivable) return 999999; // Force into Too Freakin Expensive
+
+  if (airline.model === 'revenue') {
+    const cashCost = generateCashCost(originRegion, destRegion);
+    return Math.round(cashCost / (airline.cpp / 100));
+  }
+
+  const airlineId = airline.id;
 
   // Base regional logic approximations
   if (originRegion === destRegion) {
@@ -85,7 +92,7 @@ export function generateDynamicAirlines(baseData, origin) {
     const isDrivable = origin.country === 'US' && origin.iata === airline.primaryHub;
 
     // Calculate dynamic RT cost and dynamic CPP
-    const generatedRtCost = calculateCost(originRegion, airline.primaryRegion, airline.id, isDrivable);
+    const generatedRtCost = calculateCost(originRegion, airline.primaryRegion, airline, isDrivable);
     const generatedCashCost = generateCashCost(originRegion, airline.primaryRegion);
     
     // cpp = (cash / points) * 100
@@ -108,13 +115,13 @@ export function generateDynamicAirlines(baseData, origin) {
     // Generate 3 Examples
     const destinations = [
       { iata: airline.primaryHub, region: airline.primaryRegion, type: 'Primary Hub' },
-      { iata: airline.primaryRegion === 'AS' ? 'CDG' : 'HND', region: airline.primaryRegion === 'AS' ? 'EU' : 'AS', type: 'Sweet Spot' },
-      { iata: airline.primaryRegion === 'OC' ? 'LHR' : 'SYD', region: airline.primaryRegion === 'OC' ? 'EU' : 'OC', type: 'Max Distance' }
+      { iata: airline.customDestinations.sweetSpot.iata, region: airline.customDestinations.sweetSpot.region, type: airline.customDestinations.sweetSpot.desc },
+      { iata: airline.customDestinations.maxDistance.iata, region: airline.customDestinations.maxDistance.region, type: airline.customDestinations.maxDistance.desc }
     ];
 
     const dynamicExamples = destinations.map(dest => {
       const isDrivableDest = origin.country === 'US' && origin.iata === dest.iata;
-      const destPoints = calculateCost(originRegion, dest.region, airline.id, isDrivableDest);
+      const destPoints = calculateCost(originRegion, dest.region, airline, isDrivableDest);
       const destCash = generateCashCost(originRegion, dest.region);
       
       const title = isDrivableDest 
