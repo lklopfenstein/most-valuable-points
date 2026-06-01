@@ -9,17 +9,19 @@ export default function App() {
 
   // Group airlines into Tiers
   const airlineTiers = useMemo(() => {
-    const sorted = [...airlinesData].sort((a, b) => b.milesPerPoint - a.milesPerPoint);
+    // Separate valid vs too expensive (> 40000 typicalRtCost)
+    const validAirlines = airlinesData.filter(a => a.typicalRtCost <= 40000).sort((a, b) => b.milesPerPoint - a.milesPerPoint);
+    const expensiveAirlines = airlinesData.filter(a => a.typicalRtCost > 40000).sort((a, b) => b.milesPerPoint - a.milesPerPoint);
+    
     const tiers = [];
     let currentTier = [];
     let tierIndex = 1;
     
-    sorted.forEach((airline, i) => {
+    validAirlines.forEach((airline, i) => {
       if (i === 0) {
         currentTier.push(airline);
       } else {
-        const prev = sorted[i - 1];
-        // Significant drop-off threshold for airlines is 0.02
+        const prev = validAirlines[i - 1];
         if (prev.milesPerPoint - airline.milesPerPoint >= 0.02) {
           tiers.push({ name: `Tier ${tierIndex}`, items: currentTier });
           currentTier = [airline];
@@ -32,6 +34,11 @@ export default function App() {
     if (currentTier.length > 0) {
       tiers.push({ name: `Tier ${tierIndex}`, items: currentTier });
     }
+
+    if (expensiveAirlines.length > 0) {
+      tiers.push({ name: "Too Freakin' Expensive Tier", items: expensiveAirlines, danger: true });
+    }
+
     return tiers;
   }, []);
 

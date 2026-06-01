@@ -3,32 +3,45 @@ import { TrendingUp, TrendingDown, Minus, PlaneTakeoff } from 'lucide-react';
 import { transferPartnersMeta } from '../data/loyaltyData';
 
 export default function AirlineRankingCard({ data, rank }) {
-  const { name, milesPerPoint, previousMilesPerPoint, cpp, explanation, transferPartners } = data;
+  const { name, milesPerPoint, previousMilesPerPoint, cpp, typicalRtCost, explanation, transferPartners } = data;
   
+  const isTooExpensive = typicalRtCost > 40000;
   const trend = milesPerPoint > previousMilesPerPoint ? 'up' : milesPerPoint < previousMilesPerPoint ? 'down' : 'flat';
 
   return (
-    <div className={`glass-card delay-${rank % 4 + 1}`}>
+    <div className={`glass-card ${isTooExpensive ? 'danger' : ''} delay-${rank % 4 + 1}`}>
       <div className="flex-between">
         <div className="flex-row">
-          <PlaneTakeoff size={24} color="var(--accent-primary)" />
+          <PlaneTakeoff size={24} color={isTooExpensive ? "var(--danger)" : "var(--accent-primary)"} />
           <h3 style={{ fontSize: '1.25rem' }}>#{rank} {name}</h3>
         </div>
-        <div className={`trend ${trend}`}>
-          {trend === 'up' && <TrendingUp size={16} />}
-          {trend === 'down' && <TrendingDown size={16} />}
-          {trend === 'flat' && <Minus size={16} />}
-          <span>{trend === 'flat' ? 'Flat' : trend === 'up' ? 'Up' : 'Down'}</span>
-        </div>
-      </div>
-      
-      <div style={{ marginTop: '1.5rem' }}>
-        <div className="metric-highlight">{milesPerPoint.toFixed(2)}</div>
-        <div className="metric-label">Miles Per Point</div>
-        <div className="cpp-val">Standard Valuation: {cpp} cpp</div>
+        {!isTooExpensive && (
+          <div className={`trend ${trend}`}>
+            {trend === 'up' && <TrendingUp size={16} />}
+            {trend === 'down' && <TrendingDown size={16} />}
+            {trend === 'flat' && <Minus size={16} />}
+            <span>{trend === 'flat' ? 'Flat' : trend === 'up' ? 'Up' : 'Down'}</span>
+          </div>
+        )}
       </div>
 
-      <div className="explanation">
+      {isTooExpensive && (
+        <div style={{ marginTop: '1rem' }}>
+          <span className="badge badge-danger">
+            Too Freakin' Expensive
+          </span>
+        </div>
+      )}
+      
+      <div style={{ marginTop: isTooExpensive ? '1rem' : '1.5rem' }}>
+        <div className="metric-highlight" style={{ color: isTooExpensive ? 'var(--danger)' : 'inherit', background: isTooExpensive ? 'none' : '' }}>
+          {milesPerPoint.toFixed(2)}
+        </div>
+        <div className="metric-label">Miles Per Point</div>
+        <div className="cpp-val">Typical RT Cost: {typicalRtCost.toLocaleString()} pts</div>
+      </div>
+
+      <div className={`explanation ${isTooExpensive ? 'danger' : ''}`}>
         <strong>MoM Note:</strong> {explanation}
       </div>
 
@@ -50,10 +63,10 @@ export default function AirlineRankingCard({ data, rank }) {
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '0.875rem' }}>
             {data.redemptionExamples.map((ex, i) => (
               <li key={i} style={{ marginBottom: '0.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1rem' }}>
-                <a href={ex.link} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-primary)', textDecoration: 'none' }}>
+                <a href={ex.link} target="_blank" rel="noopener noreferrer" style={{ color: isTooExpensive ? 'var(--danger)' : 'var(--accent-primary)', textDecoration: 'none' }}>
                   {ex.title}
                 </a>
-                <span style={{ fontWeight: 600, whiteSpace: 'nowrap' }}>{ex.cost}</span>
+                <span style={{ fontWeight: 600, whiteSpace: 'nowrap', color: isTooExpensive ? 'var(--danger)' : 'inherit' }}>{ex.cost}</span>
               </li>
             ))}
           </ul>
